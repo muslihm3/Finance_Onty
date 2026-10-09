@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Keuangan Onty — Sep 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+:root{
+ --font-anthropic-sans:'Sofia Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+ --font-anthropic-serif:'Fraunces',Georgia,'Times New Roman',serif;
+ --color-fg:#2b1a12;--color-fg-muted:#7a5a48;--color-bg:#fbf1e6;
+ --color-ok:#3f7d2f;--color-warn:#a8620a;--color-bad:#b3261e;
+ --cds-font-size-caption:12px;--cds-font-size-body:14px;--cds-font-size-heading:16px;--cds-font-size-title:30px;--cds-font-weight-medium:600;
+ --cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:16px;--cds-gap-lg:24px;--cds-gap-xl:32px;
+ --cds-pad-xs:4px;--cds-pad-sm:8px;--cds-pad-lg:20px;--cds-radius:12px;
+ --cds-chart-reference:#7a5a48;--cds-surface-popover:#fffaf5;--cds-border:#e3c7ad;--cds-shadow-popover:0 6px 20px rgba(80,35,15,.15);
+ --cds-text-secondary:#7a5a48;--cds-dur-slow:.3s;
+}
+@media (prefers-color-scheme: dark){:root{--color-fg:#f5e6d8;--color-fg-muted:#c2a18c;--color-bg:#1e1310;--color-ok:#7cc06a;--color-warn:#f0a94a;--color-bad:#f07b6e;--cds-chart-reference:#c2a18c;--cds-surface-popover:#2a1a14;--cds-border:#4a2c20;--cds-shadow-popover:0 6px 20px rgba(0,0,0,.5);--cds-text-secondary:#c2a18c;color-scheme:dark}}
+html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
+*{box-sizing:border-box}
+</style>
+<script>
+window.dash = (function(){
+  const LR = [{"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Toko", "nilai": 641094600.0}, {"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan SnackBox", "nilai": 155144000.0}, {"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Cake", "nilai": 10005000.0}, {"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Pendapatan usaha lainnya", "nilai": 18894000.0}, {"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Diskon Penjualan IDR", "nilai": -13536425.0}, {"cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya bahan baku langsung", "nilai": 285291054.16}, {"cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya tenaga kerja langsung", "nilai": 8.0}, {"cabang": "Onty 2", "kelompok": "HPP", "kategori": "Overhead produksi", "akun": "Biaya overhead pabrik", "nilai": 68164702.42}, {"cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Beban Angkut Pembelian", "nilai": 1231700.0}, {"cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Angkut Penjualan", "nilai": 583000.0}, {"cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Marketing", "nilai": 1000000.0}, {"cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Transportasi - Penjualan", "nilai": 222000.0}, {"cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban penyelenggaraan event", "nilai": 6945090.08}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban Gaji dan Upah", "nilai": 146677000.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Software & Sistem ERP", "nilai": 72916.66}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Service & Maintenance", "nilai": 5421000.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Listrik", "nilai": 12092984.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Perlengkapan Toko & Kantor", "nilai": 5602176.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban konsumsi karyawan", "nilai": 21246000.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban kesejahteraan karyawan", "nilai": 7747500.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban internet", "nilai": 785463.32}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Research and Development", "nilai": 90996.0}, {"cabang": "Onty 2", "kelompok": "Penyusutan", "kategori": "Penyusutan", "akun": "Penyusutan Aset Tetap", "nilai": 13002398.25}, {"cabang": "Onty 2", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Beban lain lain", "nilai": 2822241.0}, {"cabang": "Onty 2", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Biaya bank", "nilai": 6500.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Toko", "nilai": 335433600.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan SnackBox", "nilai": 128456725.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Cake", "nilai": 27753000.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Pendapatan usaha lainnya", "nilai": 2602000.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Retur Penjualan", "nilai": -1093000.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Diskon Penjualan IDR", "nilai": -16555750.0}, {"cabang": "Onty 1", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya bahan baku langsung", "nilai": 60628956.89}, {"cabang": "Onty 1", "kelompok": "HPP", "kategori": "Overhead produksi", "akun": "Biaya overhead pabrik", "nilai": 44112054.77}, {"cabang": "Onty 1", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Beban Angkut Pembelian", "nilai": 1615000.0}, {"cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Angkut Penjualan", "nilai": 1454000.0}, {"cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Transportasi - Penjualan", "nilai": 2791500.0}, {"cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban iklan dan promosi", "nilai": 823000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban Gaji dan Upah", "nilai": 145671700.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban DPLK Karyawan", "nilai": 2700000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Pelatihan & Pengembangan", "nilai": 31531532.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Software & Sistem ERP", "nilai": 1938878.83}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Service & Maintenance", "nilai": 4003000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Sewa", "nilai": 2486950.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Listrik", "nilai": 9529128.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Akomodasi & Transportasi", "nilai": 2080000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Perlengkapan Toko & Kantor", "nilai": 1839783.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban konsumsi karyawan", "nilai": 12844500.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban kesejahteraan karyawan", "nilai": 5164000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban BPJS-TK Karyawan", "nilai": 151199.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban internet", "nilai": 934313.33}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Research and Development", "nilai": 584245.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban JHT", "nilai": 568800.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban sertifikasi halal", "nilai": 7000000.0}, {"cabang": "Onty 1", "kelompok": "Penyusutan", "kategori": "Penyusutan", "akun": "Penyusutan Aset Tetap", "nilai": 10958579.09}, {"cabang": "Onty 1", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Beban lain lain", "nilai": 1613342.22}, {"cabang": "Onty 1", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Biaya bank", "nilai": 97136.98}];
+  const store = { lr: LR }, fns = [];
+  return {
+    colors: [],
+    calc(id, o){ store[id] = o.fn(...o.inputs.map(i => store[i])); },
+    data(id){ return { status: store[id] ? 'ok' : 'missing', data: store[id] || [] }; },
+    onData(fn){ fns.push(fn); const run = () => fn(); if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+      let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(run, 150); }); }
+  };
+})();
+</script>
+</head>
+<body>
+<div id="dash-root">
+<style>
+/* Palet brand Onty: Kofta Brown, Fiery Orange, Mammoth Wool, Tree Poppy, Caramelised Orange + turunan */
+.ofd{--on-kofta:#88341c;--on-fiery:#b3542e;--on-wool:#975223;--on-poppy:#e08141;--on-caramel:#f3914b;--on-deep:#5e2412;--on-cream:#f6c08f;--on-wheat:#c79a6b;--on-laba:#4f8a3c;--on-accent:#88341c;--on-ink-dark:#3a1508;--on-bg:#fbf1e6;--on-card:#fffaf5;--on-line:#eed6bf;--on-track:#f3e2d1}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ofd{--on-kofta:#b9502f;--on-deep:#8a3a20;--on-wool:#b0662f;--on-laba:#6aa953;--on-accent:#f3914b;--on-bg:#1e1310;--on-card:#2a1a14;--on-line:#4a2c20;--on-track:#3a241b}}
+:root[data-theme="dark"] .ofd{--on-kofta:#b9502f;--on-deep:#8a3a20;--on-wool:#b0662f;--on-laba:#6aa953;--on-accent:#f3914b;--on-bg:#1e1310;--on-card:#2a1a14;--on-line:#4a2c20;--on-track:#3a241b}
+.ofd .hd h1,.ofd h2{color:var(--on-accent)}
+.ofd .hd .eyebrow{color:var(--on-fiery)}
+.ofd .pies{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:var(--cds-gap-md)}
+.ofd .pie{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.ofd .pie .nm{font-weight:500;font-size:var(--cds-font-size-body)}
+.ofd .pie svg{width:100%;max-width:210px;height:auto}
+.ofd .pie svg path{stroke:var(--on-card);stroke-width:2;cursor:default}
+.ofd .pie svg path:hover{filter:brightness(1.1)}
+.ofd .pie ul{list-style:none;margin:0;padding:0;width:100%;max-width:230px;font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.ofd .pie li{display:flex;justify-content:space-between;gap:8px;padding:2px 0;border-bottom:1px solid var(--on-line)}
+.ofd .pie li i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+#dash-root{--dash-gutter:0}
+.ofd{font-family:var(--font-anthropic-sans);color:var(--color-fg);display:flex;flex-direction:column;gap:var(--cds-gap-xl);background:var(--on-bg);padding:clamp(16px,3vw,36px);min-height:100%;box-sizing:border-box}
+.ofd>*{width:100%;max-width:1200px;margin-inline:auto;box-sizing:border-box}
+.ofd .muted{color:var(--color-fg-muted)}
+.ofd .num{font-variant-numeric:tabular-nums}
+.ofd .hd h1{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0;text-wrap:balance}
+.ofd .hd .eyebrow{font-size:var(--cds-font-size-caption);letter-spacing:.06em;text-transform:uppercase;color:var(--color-fg-muted);margin-bottom:var(--cds-gap-xs)}
+.ofd .hd p{margin:var(--cds-gap-sm) 0 0;font-size:var(--cds-font-size-body);max-width:72ch;line-height:1.55}
+.ofd .ofd-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:var(--cds-gap-md)}
+.ofd .tile{background:var(--on-card);border:1px solid var(--on-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
+.ofd .tile .lbl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.ofd .tile .big{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);font-variant-numeric:tabular-nums;line-height:1.15}
+.ofd .tile .sub{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums;line-height:1.5}
+.ofd .tile .sub b{font-weight:500;color:var(--color-fg)}
+.ofd .pill{display:inline-block;font-size:var(--cds-font-size-caption);padding:1px 8px;border-radius:999px;border:1px solid currentColor;width:fit-content}
+.ofd .ok{color:var(--color-ok)} .ofd .warn{color:var(--color-warn)} .ofd .bad{color:var(--color-bad)}
+.ofd h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0 0 var(--cds-gap-sm)}
+.ofd .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));gap:var(--cds-gap-md)}
+.ofd .card{background:var(--on-card);border:1px solid var(--on-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);min-width:0;position:relative}
+.ofd .card h3{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0}
+.ofd .card .note{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:4px 0 var(--cds-gap-md);line-height:1.5}
+/* stacked "Rp100" bars */
+.ofd .alloc-row{display:grid;grid-template-columns:5.5rem 1fr;gap:var(--cds-gap-sm);align-items:center;margin-bottom:var(--cds-gap-sm)}
+.ofd .alloc-row .nm{font-size:var(--cds-font-size-body);font-weight:500}
+.ofd .stack{display:flex;height:34px;border-radius:6px;overflow:hidden;background:var(--on-track)}
+.ofd .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-variant-numeric:tabular-nums;min-width:0;overflow:hidden;white-space:nowrap;cursor:default}
+.ofd .seg:hover{filter:brightness(1.12)}
+.ofd .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:var(--cds-gap-sm);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.ofd .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+/* paired bars */
+.ofd .pair{display:grid;grid-template-columns:minmax(7rem,9.5rem) 1fr;gap:4px var(--cds-gap-sm);align-items:center;padding-block:8px;border-bottom:1px solid var(--on-line)}
+.ofd .pair:last-child{border-bottom:0}
+.ofd .pair .mt{font-size:var(--cds-font-size-body);line-height:1.3}
+.ofd .pair .mt small{display:block;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+.ofd .bars{display:flex;flex-direction:column;gap:4px;min-width:0}
+.ofd .bline{display:grid;grid-template-columns:3.4rem 1fr 3.6rem;gap:6px;align-items:center;font-size:var(--cds-font-size-caption)}
+.ofd .track{height:14px;background:var(--on-track);border-radius:4px;position:relative}
+.ofd .fill{height:100%;border-radius:4px}
+.ofd .bench{position:absolute;top:-3px;bottom:-3px;border-left:2px dashed var(--cds-chart-reference)}
+.ofd .bline .val{text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+/* top expense list */
+.ofd .seg-ctl{display:inline-flex;border:1px solid var(--on-line);border-radius:999px;overflow:hidden;margin-bottom:var(--cds-gap-md)}
+.ofd .seg-ctl button{font:inherit;font-size:var(--cds-font-size-caption);padding:5px 12px;border:0;background:transparent;color:var(--color-fg-muted);cursor:pointer}
+.ofd .seg-ctl button[aria-pressed="true"]{background:var(--color-fg);color:var(--color-bg)}
+.ofd .seg-ctl button:focus-visible{outline:2px solid var(--color-fg);outline-offset:-2px}
+.ofd .rank{display:flex;flex-direction:column;gap:7px}
+.ofd .rk{display:grid;grid-template-columns:minmax(0,12rem) 1fr 7.5rem;gap:8px;align-items:center;font-size:var(--cds-font-size-caption)}
+.ofd .rk .an{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:var(--cds-font-size-body)}
+.ofd .rk .rv{text-align:right;font-variant-numeric:tabular-nums}
+.ofd .rk .rv b{font-weight:500}
+.ofd .rk .track{height:16px}
+@media (max-width:520px){.ofd .rk{grid-template-columns:minmax(0,1fr) 6.5rem}.ofd .rk .track{grid-column:1/-1;order:3}}
+/* insights */
+.ofd .ins{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:var(--cds-gap-md)}
+.ofd .ins .card{display:flex;flex-direction:column;gap:6px}
+.ofd .ins .card p{margin:0;line-height:1.55;font-size:var(--cds-font-size-body)}
+.ofd .ins .card .do{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);border-top:1px solid var(--on-line);padding-top:8px;margin-top:auto;line-height:1.5}
+.ofd .ins b{font-weight:600}
+/* table */
+.ofd .tbl-wrap{overflow:auto;max-height:560px}
+.ofd table{border-collapse:collapse;width:100%;font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.ofd th,.ofd td{padding:7px 10px;border-bottom:1px solid var(--on-line);text-align:right;white-space:nowrap}
+.ofd th:first-child,.ofd td:first-child,.ofd th:nth-child(2),.ofd td:nth-child(2){text-align:left}
+.ofd th{position:sticky;top:0;background:var(--on-card);font-weight:500;color:var(--color-fg-muted);z-index:1}
+.ofd tr.grp td{font-weight:600;color:var(--color-fg)}
+.ofd .tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);border-radius:var(--cds-radius);box-shadow:var(--cds-shadow-popover);padding:var(--cds-pad-xs) var(--cds-pad-sm);font-size:var(--cds-font-size-caption);z-index:5;max-width:16rem;line-height:1.45}
+.ofd .tip .t{color:var(--cds-text-secondary)}
+.ofd [data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
+.ofd .failed{display:flex;align-items:center;justify-content:center;gap:6px;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);min-height:80px}
+.ofd .failed::before{content:"";width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad)}
+.ofd .foot{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.6;max-width:90ch}
+.ofd .foot a{color:inherit}
+</style>
+
+<div class="ofd">
+  <header class="hd" id="ringkasan-atas">
+    <div class="eyebrow">Onty Bakery &amp; Resto · Laba rugi September 2026 · Onty 1 &amp; Onty 2</div>
+    <h1>Kesehatan keuangan Onty, September 2026</h1>
+    <p id="takeaway">Dari setiap Rp100 penjualan bersih, Onty menyimpan <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Gabungan" data-fmt="rp100">—</b> sebagai laba bersih. Onty 2 menyumbang omset terbesar dengan margin bersih <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Onty 2" data-fmt="pct">—</b>, sedangkan Onty 1 <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Onty 1" data-fmt="pct">—</b>. Dua hal yang perlu dicek: HPP kedua cabang terpaut sangat jauh, dan biaya karyawan Onty 1 tinggi dibanding omsetnya.</p>
+  </header>
+
+  <section class="ofd-tiles" aria-label="Angka utama gabungan">
+    <div class="tile">
+      <span class="lbl">Penjualan bersih (setelah diskon)</span>
+      <span class="big v" data-source="ringkasan" data-field="pendapatan" data-where="cabang=Gabungan" data-fmt="jt">—</span>
+      <span class="sub">Onty 1 <b class="v" data-source="ringkasan" data-field="pendapatan" data-where="cabang=Onty 1" data-fmt="jt">—</b> · Onty 2 <b class="v" data-source="ringkasan" data-field="pendapatan" data-where="cabang=Onty 2" data-fmt="jt">—</b></span>
+    </div>
+    <div class="tile">
+      <span class="lbl">HPP (modal produk)</span>
+      <span class="big v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Gabungan" data-fmt="pct">—</span>
+      <span class="sub">dari omset · Onty 1 <b class="v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b> · Onty 2 <b class="v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b></span>
+    </div>
+    <div class="tile">
+      <span class="lbl">Laba kotor</span>
+      <span class="big v" data-source="ringkasan" data-field="laba_kotor" data-where="cabang=Gabungan" data-fmt="jt">—</span>
+      <span class="sub">margin <b class="v" data-source="ringkasan" data-field="margin_kotor" data-where="cabang=Gabungan" data-fmt="pct">—</b> · setelah dikurangi HPP</span>
+    </div>
+    <div class="tile">
+      <span class="lbl">Beban operasional</span>
+      <span class="big v" data-source="ringkasan" data-field="beban_operasional" data-where="cabang=Gabungan" data-fmt="jt">—</span>
+      <span class="sub"><b class="v" data-source="ringkasan" data-field="opex_pct" data-where="cabang=Gabungan" data-fmt="pct">—</b> dari omset · gaji, listrik, dll.</span>
+    </div>
+    <div class="tile">
+      <span class="lbl">Laba bersih</span>
+      <span class="big v" data-source="ringkasan" data-field="laba_bersih" data-where="cabang=Gabungan" data-fmt="jt">—</span>
+      <span class="sub">margin <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Gabungan" data-fmt="pct">—</b> <span class="pill" id="pill-net"></span></span>
+    </div>
+  </section>
+
+  <section id="ke-mana-uangnya">
+    <div class="card" data-source="alokasi">
+      <h3>Dari Rp100 penjualan, ke mana uangnya?</h3>
+      <div class="note">Setiap batang = Rp100 penjualan bersih. Arahkan kursor ke tiap warna untuk melihat nilai rupiahnya. Bagian hijau paling kanan adalah yang tersisa sebagai laba bersih.</div>
+      <div id="alloc" style="min-height:150px"></div>
+      <div class="legend" id="alloc-legend"></div>
+    </div>
+  </section>
+
+  <section id="margin">
+    <h2>Perbandingan margin &amp; rasio biaya</h2>
+    <div class="grid">
+      <div class="card" data-source="ringkasan">
+        <h3>Margin keuntungan per cabang</h3>
+        <div class="note">Margin = berapa persen dari penjualan yang jadi untung. Makin panjang makin baik. Garis putus-putus = angka gabungan dua cabang.</div>
+        <div id="margins" style="min-height:220px"></div>
+      </div>
+      <div class="card" data-source="ringkasan">
+        <h3>Rasio biaya terhadap omset</h3>
+        <div class="note">Makin pendek makin hemat. Prime cost = HPP + seluruh biaya karyawan; patokan umum usaha makanan sekitar 60–65% dari penjualan (garis putus-putus).</div>
+        <div id="ratios" style="min-height:220px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beban-terbesar">
+    <div class="card" data-source="beban">
+      <h3>10 pos biaya terbesar</h3>
+      <div class="note">Diurutkan dari yang paling besar. Angka kanan: rupiah dan persen dari penjualan bersih cabang tersebut.</div>
+      <div class="seg-ctl" role="group" aria-label="Pilih cabang" id="cab-ctl">
+        <button type="button" data-c="Gabungan" aria-pressed="true">Gabungan</button>
+        <button type="button" data-c="Onty 1" aria-pressed="false">Onty 1</button>
+        <button type="button" data-c="Onty 2" aria-pressed="false">Onty 2</button>
+      </div>
+      <div class="rank" id="rank" style="min-height:300px"></div>
+    </div>
+  </section>
+
+  <section id="hpp-dan-penjualan">
+    <div class="grid">
+      <div class="card" data-source="ringkasan">
+        <h3>Isi HPP: bahan baku vs overhead produksi</h3>
+        <div class="note">Persen dari penjualan bersih. Bahan baku termasuk ongkos angkut pembelian.</div>
+        <div id="hpp" style="min-height:150px"></div>
+      </div>
+      <div class="card" data-source="mix">
+        <h3>Sumber penjualan</h3>
+        <div class="note">Porsi tiap jenis penjualan dari penjualan kotor (sebelum diskon) per cabang.</div>
+        <div id="mixbars" class="pies" style="min-height:260px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="temuan">
+    <h2>Temuan &amp; saran untuk owner</h2>
+    <div class="ins">
+      <div class="card">
+        <span class="pill warn">Perlu dicek</span>
+        <p>HPP Onty 2 <b class="v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b> dari omset, hampir dua kali Onty 1 (<b class="v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b>). Selisih terbesar ada di bahan baku: <b class="v" data-source="ringkasan" data-field="bahan_baku_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b> vs <b class="v" data-source="ringkasan" data-field="bahan_baku_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b>.</p>
+        <div class="do">Kemungkinan besar Onty 2 memproduksi (atau membeli bahan) untuk Onty 1 tanpa transfer biaya antar cabang. Minta tim akunting mencatat mutasi barang ke Onty 1 supaya margin tiap cabang akurat. Angka gabungan tetap benar.</div>
+      </div>
+      <div class="card">
+        <span class="pill bad">Biaya terbesar</span>
+        <p>Biaya karyawan Onty 1 <b class="v" data-source="ringkasan" data-field="karyawan_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b> dari omset, Onty 2 hanya <b class="v" data-source="ringkasan" data-field="karyawan_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b>. Gaji kedua cabang hampir sama, padahal omset Onty 1 jauh lebih kecil.</p>
+        <div class="do">Cek jadwal shift dan jumlah staf per jam sepi di Onty 1, atau dorong omset Onty 1 (SnackBox &amp; cake pesanan) agar gaji yang sama menghasilkan penjualan lebih besar.</div>
+      </div>
+      <div class="card">
+        <span class="pill ok">Biaya sekali jalan</span>
+        <p>Onty 1 menanggung pelatihan dan sertifikasi halal senilai <b class="v" data-source="ringkasan" data-field="beban_sekali" data-where="cabang=Onty 1" data-fmt="jt">—</b>. Tanpa biaya ini, margin bersih Onty 1 menjadi <b class="v" data-source="ringkasan" data-field="margin_bersih_normal" data-where="cabang=Onty 1" data-fmt="pct">—</b>.</p>
+        <div class="do">Ini investasi, bukan kebocoran. Ke depan, sebaiknya dibagi rata ke dua cabang (atau dicatat sebagai biaya pusat) supaya perbandingan cabang adil.</div>
+      </div>
+      <div class="card">
+        <span class="pill warn">Diskon</span>
+        <p>Diskon &amp; retur Onty 1 mencapai <b class="v" data-source="ringkasan" data-field="diskon_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b> dari penjualan kotor, dua kali lipat Onty 2 (<b class="v" data-source="ringkasan" data-field="diskon_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b>).</p>
+        <div class="do">Pastikan setiap promo punya target (misalnya naik transaksi). Kalau tidak menambah omset, kurangi frekuensinya atau ganti ke bundling.</div>
+      </div>
+      <div class="card">
+        <span class="pill ok">Sehat</span>
+        <p>Prime cost gabungan (HPP + karyawan) <b class="v" data-source="ringkasan" data-field="prime_pct" data-where="cabang=Gabungan" data-fmt="pct">—</b>, masih di kisaran wajar usaha makanan. Margin bersih gabungan <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Gabungan" data-fmt="pct">—</b> termasuk tinggi.</p>
+        <div class="do">Pantau angka ini tiap bulan. Jika prime cost naik di atas 65%, itu tanda harga bahan atau jam kerja perlu ditinjau.</div>
+      </div>
+      <div class="card">
+        <span class="pill warn">Kelengkapan data</span>
+        <p>Onty 2 tidak mencatat beban sewa, BPJS, maupun JHT, sedangkan Onty 1 mencatatnya. Biaya marketing kedua cabang juga sangat kecil, <b class="v" data-source="ringkasan" data-field="marketing_pct" data-where="cabang=Gabungan" data-fmt="pct">—</b> dari omset.</p>
+        <div class="do">Cek apakah biaya ini memang tidak ada atau dicatat di tempat lain. Untuk target brand nasional, anggaran marketing 2–5% dari omset layak dipertimbangkan.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rincian">
+    <div class="card">
+      <h3>Rincian laba rugi per akun</h3>
+      <div class="note">Semua akun dari laporan Accurate, disandingkan per cabang. Persen = terhadap penjualan bersih cabang masing-masing.</div>
+      <div class="tbl-wrap">
+        <table id="tbl" data-source="perbandingan" data-row-key="akun">
+          <thead><tr>
+            <th data-field="akun">Akun</th>
+            <th data-field="kelompok">Kelompok</th>
+            <th data-field="onty1">Onty 1 (Rp)</th>
+            <th data-field="onty1_pct">% omset</th>
+            <th data-field="onty2">Onty 2 (Rp)</th>
+            <th data-field="onty2_pct">% omset</th>
+            <th data-field="gabungan">Gabungan (Rp)</th>
+            <th data-field="gabungan_pct">% omset</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <p class="foot">Sumber: Laporan Laba/Rugi (Standar) Accurate, cabang Onty 1 dan Onty 2, periode 1–30 September 2026, dicetak 9 Oktober 2026. Pengelompokan biaya (karyawan, operasional toko, dll.) dibuat untuk memudahkan membaca. Patokan prime cost 60–65%: <a href="https://pos.toasttab.com/blog/on-the-line/restaurant-prime-cost" target="_blank" rel="noopener">Toast, Restaurant Prime Cost</a>. Catatan kecil: Onty 2 mencatat "Biaya tenaga kerja langsung" Rp8, kemungkinan salah input.</p>
+</div>
+
+<script>
+dash.calc('ringkasan', {
+  inputs: ['lr'],
+  title: 'Ringkasan & margin per cabang',
+  description: 'Total pendapatan, HPP, beban dan laba, serta rasionya terhadap penjualan bersih, untuk Onty 1, Onty 2 dan gabungan.',
+  fn: (lr) => ['Onty 1','Onty 2','Gabungan'].map(c => {
+    const r = lr.filter(x => c === 'Gabungan' || x.cabang === c);
+    const sum = f => r.filter(f).reduce((a, x) => a + Number(x.nilai), 0);
+    const pendapatan = sum(x => x.kelompok === 'Pendapatan');
+    const bruto = sum(x => x.kelompok === 'Pendapatan' && Number(x.nilai) > 0);
+    const hpp = sum(x => x.kelompok === 'HPP');
+    const opex = sum(x => ['Beban penjualan','Beban umum & administrasi','Penyusutan'].includes(x.kelompok));
+    const nonop = sum(x => x.kelompok === 'Beban non-operasional');
+    const karyawan = sum(x => x.kategori === 'Karyawan');
+    const sekali = sum(x => x.akun === 'Beban Pelatihan & Pengembangan' || x.akun === 'Beban sertifikasi halal');
+    const marketing = sum(x => ['Beban Marketing','Beban penyelenggaraan event','Beban iklan dan promosi'].includes(x.akun));
+    const diskon = -sum(x => x.kelompok === 'Pendapatan' && Number(x.nilai) < 0);
+    const lk = pendapatan - hpp, lo = lk - opex, lb = lo - nonop;
+    return {
+      cabang: c, pendapatan, hpp, laba_kotor: lk, beban_operasional: opex, laba_operasional: lo,
+      beban_non_operasional: nonop, laba_bersih: lb,
+      hpp_pct: hpp / pendapatan, margin_kotor: lk / pendapatan, opex_pct: opex / pendapatan,
+      margin_operasional: lo / pendapatan, margin_bersih: lb / pendapatan,
+      bahan_baku_pct: sum(x => x.kategori === 'Bahan baku') / pendapatan,
+      overhead_pct: sum(x => x.kategori === 'Overhead produksi') / pendapatan,
+      karyawan_pct: karyawan / pendapatan, prime_pct: (hpp + karyawan) / pendapatan,
+      marketing_pct: marketing / pendapatan, diskon_pct: diskon / bruto,
+      beban_sekali: sekali, margin_bersih_normal: (lb + sekali) / pendapatan
+    };
+  })
+});
+
+dash.calc('alokasi', {
+  inputs: ['lr'],
+  title: 'Alokasi tiap Rp100 penjualan',
+  description: 'Biaya per kategori dan sisa laba bersih sebagai bagian dari penjualan bersih, per cabang.',
+  fn: (lr) => {
+    const kat = ['Bahan baku','Overhead produksi','Karyawan','Operasional toko','Pelatihan & sertifikasi','Marketing & penjualan','Penyusutan','Lain-lain'];
+    const out = [];
+    for (const c of ['Onty 1','Onty 2','Gabungan']) {
+      const r = lr.filter(x => c === 'Gabungan' || x.cabang === c);
+      const pend = r.filter(x => x.kelompok === 'Pendapatan').reduce((a, x) => a + Number(x.nilai), 0);
+      let biaya = 0;
+      for (const k of kat) {
+        const n = r.filter(x => x.kategori === k).reduce((a, x) => a + Number(x.nilai), 0);
+        biaya += n;
+        out.push({ cabang: c, kategori: k, nilai: n, pct: n / pend });
+      }
+      out.push({ cabang: c, kategori: 'Laba bersih', nilai: pend - biaya, pct: (pend - biaya) / pend });
+    }
+    return out;
+  }
+});
+
+dash.calc('beban', {
+  inputs: ['lr'],
+  title: 'Pos biaya per akun',
+  description: 'Setiap akun biaya (HPP, operasional, non-operasional) dan porsinya dari penjualan bersih, per cabang dan gabungan.',
+  fn: (lr) => {
+    const out = [];
+    for (const c of ['Onty 1','Onty 2','Gabungan']) {
+      const r = lr.filter(x => c === 'Gabungan' || x.cabang === c);
+      const pend = r.filter(x => x.kelompok === 'Pendapatan').reduce((a, x) => a + Number(x.nilai), 0);
+      const by = new Map();
+      for (const x of r) if (x.kelompok !== 'Pendapatan') {
+        const o = by.get(x.akun) || { cabang: c, akun: x.akun, kategori: x.kategori, nilai: 0 };
+        o.nilai += Number(x.nilai); by.set(x.akun, o);
+      }
+      for (const o of by.values()) out.push({ ...o, pct: o.nilai / pend });
+    }
+    return out;
+  }
+});
+
+dash.calc('mix', {
+  inputs: ['lr'],
+  title: 'Komposisi penjualan',
+  description: 'Porsi tiap jenis penjualan dari penjualan kotor (sebelum diskon dan retur) per cabang.',
+  fn: (lr) => {
+    const out = [];
+    for (const c of ['Onty 1','Onty 2']) {
+      const r = lr.filter(x => x.cabang === c && x.kelompok === 'Pendapatan' && Number(x.nilai) > 0);
+      const tot = r.reduce((a, x) => a + Number(x.nilai), 0);
+      for (const x of r) out.push({ cabang: c, akun: x.akun, nilai: Number(x.nilai), pct: Number(x.nilai) / tot });
+    }
+    return out;
+  }
+});
+
+dash.calc('perbandingan', {
+  inputs: ['lr'],
+  title: 'Laba rugi per akun, berdampingan',
+  description: 'Nilai tiap akun untuk Onty 1, Onty 2 dan gabungan, dengan persen terhadap penjualan bersih masing-masing.',
+  fn: (lr) => {
+    const pend = c => lr.filter(x => x.kelompok === 'Pendapatan' && (c === 'all' || x.cabang === c)).reduce((a, x) => a + Number(x.nilai), 0);
+    const p1 = pend('Onty 1'), p2 = pend('Onty 2'), pg = pend('all');
+    const order = ['Pendapatan','HPP','Beban penjualan','Beban umum & administrasi','Penyusutan','Beban non-operasional'];
+    const by = new Map();
+    for (const x of lr) {
+      const o = by.get(x.akun) || { akun: x.akun, kelompok: x.kelompok, onty1: 0, onty2: 0 };
+      if (x.cabang === 'Onty 1') o.onty1 += Number(x.nilai); else o.onty2 += Number(x.nilai);
+      by.set(x.akun, o);
+    }
+    return [...by.values()].map(o => ({ ...o, gabungan: o.onty1 + o.onty2,
+      onty1_pct: o.onty1 / p1, onty2_pct: o.onty2 / p2, gabungan_pct: (o.onty1 + o.onty2) / pg }))
+      .sort((a, b) => order.indexOf(a.kelompok) - order.indexOf(b.kelompok) || Math.abs(b.gabungan) - Math.abs(a.gabungan));
+  }
+});
+
+(function () {
+  const root = document.querySelector('.ofd');
+  const idr = new Intl.NumberFormat('id-ID', { maximumFractionDigits: 0 });
+  const one = new Intl.NumberFormat('id-ID', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+  const F = {
+    jt: v => 'Rp ' + one.format(v / 1e6) + ' jt',
+    pct: v => one.format(v * 100) + '%',
+    rp100: v => 'Rp' + one.format(v * 100),
+    rp: v => idr.format(v)
+  };
+  const COL = {
+    'Bahan baku': 'var(--on-kofta)', 'Overhead produksi': 'var(--on-poppy)', 'Karyawan': 'var(--on-wool)',
+    'Operasional toko': 'var(--on-caramel)', 'Pelatihan & sertifikasi': 'var(--on-deep)', 'Marketing & penjualan': 'var(--on-cream)',
+    'Penyusutan': 'var(--on-wheat)', 'Lain-lain': 'var(--on-fiery)', 'Laba bersih': 'var(--on-laba)'
+  };
+  const LIGHT = new Set(['Operasional toko','Marketing & penjualan','Penyusutan','Penjualan Cake']);
+  const CAB_COL = ['var(--on-poppy)', 'var(--on-kofta)'];
+  const MIX_COL = { 'Penjualan Toko': 'var(--on-kofta)', 'Penjualan SnackBox': 'var(--on-poppy)', 'Penjualan Cake': 'var(--on-cream)', 'Pendapatan usaha lainnya': 'var(--on-deep)' };
+  let cab = 'Gabungan';
+
+  // tooltip
+  const tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true;
+  function showTip(card, ev, title, line) {
+    if (tip.parentNode !== card) card.appendChild(tip);
+    tip.textContent = '';
+    const t = document.createElement('div'); t.className = 't'; t.textContent = title; tip.appendChild(t);
+    const l = document.createElement('div'); l.textContent = line; tip.appendChild(l);
+    tip.hidden = false;
+    const r = card.getBoundingClientRect();
+    let x = ev.clientX - r.left + 12, y = ev.clientY - r.top + 12;
+    const w = tip.offsetWidth;
+    if (x + w > r.width - 8) x = Math.max(8, ev.clientX - r.left - w - 12);
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  }
+  function hideTip() { tip.hidden = true; }
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+  const failed = (box) => { box.textContent = ''; box.appendChild(el('div', 'failed', 'Gagal memuat')); };
+
+  function fillValues(rows) {
+    root.querySelectorAll('.v[data-source="ringkasan"]').forEach(e => {
+      const c = decodeURIComponent(e.dataset.where.split('=')[1]);
+      const row = rows && rows.find(r => r.cabang === c);
+      e.textContent = row ? F[e.dataset.fmt](row[e.dataset.field]) : '—';
+      if (row) e.classList.remove('dash-skeleton');
+    });
+    const pill = document.getElementById('pill-net');
+    const g = rows && rows.find(r => r.cabang === 'Gabungan');
+    pill.className = 'pill';
+    if (g) {
+      const m = g.margin_bersih;
+      pill.textContent = m >= 0.15 ? 'Sehat' : m >= 0.05 ? 'Cukup' : 'Waspada';
+      pill.classList.add(m >= 0.15 ? 'ok' : m >= 0.05 ? 'warn' : 'bad');
+    } else pill.textContent = '';
+  }
+
+  function drawAlloc(rows) {
+    const box = document.getElementById('alloc'); box.textContent = '';
+    const leg = document.getElementById('alloc-legend'); leg.textContent = '';
+    const card = box.closest('.card');
+    for (const c of ['Onty 1','Onty 2','Gabungan']) {
+      const row = el('div', 'alloc-row');
+      row.appendChild(el('div', 'nm', c));
+      const st = el('div', 'stack');
+      for (const d of rows.filter(r => r.cabang === c)) {
+        if (d.pct <= 0) continue;
+        const s = el('div', 'seg', d.pct >= 0.055 ? 'Rp' + one.format(d.pct * 100) : '');
+        s.style.width = (d.pct * 100) + '%'; s.style.background = COL[d.kategori];
+        if (LIGHT.has(d.kategori)) s.style.color = 'var(--on-ink-dark)';
+        s.addEventListener('mousemove', ev => showTip(card, ev, c + ' · ' + d.kategori, 'Rp' + one.format(d.pct * 100) + ' dari Rp100 · ' + F.jt(d.nilai)));
+        s.addEventListener('mouseleave', hideTip);
+        st.appendChild(s);
+      }
+      row.appendChild(st); box.appendChild(row);
+    }
+    for (const k of Object.keys(COL)) {
+      const s = el('span'); const i = el('i'); i.style.background = COL[k]; s.appendChild(i); s.appendChild(document.createTextNode(k)); leg.appendChild(s);
+    }
+  }
+
+  function pairs(boxId, rows, metrics, maxV, bench) {
+    const box = document.getElementById(boxId); box.textContent = '';
+    const g = rows.find(r => r.cabang === 'Gabungan');
+    for (const m of metrics) {
+      const p = el('div', 'pair');
+      const mt = el('div', 'mt', m.label); mt.appendChild(el('small', null, m.hint)); p.appendChild(mt);
+      const bars = el('div', 'bars');
+      ['Onty 1','Onty 2'].forEach((c, i) => {
+        const r = rows.find(x => x.cabang === c);
+        const bl = el('div', 'bline');
+        bl.appendChild(el('span', 'muted', c));
+        const tr = el('div', 'track');
+        const f = el('div', 'fill'); f.style.width = Math.max(0, Math.min(1, r[m.f] / maxV)) * 100 + '%'; f.style.background = CAB_COL[i];
+        tr.appendChild(f);
+        const ref = (bench && m.bench != null) ? m.bench : g[m.f];
+        const bm = el('div', 'bench'); bm.style.left = Math.min(1, ref / maxV) * 100 + '%'; tr.appendChild(bm);
+        bl.appendChild(tr);
+        const v = el('span', 'val', F.pct(r[m.f]));
+        if (m.warn && m.warn(r[m.f])) v.classList.add('bad');
+        bl.appendChild(v);
+        bars.appendChild(bl);
+      });
+      p.appendChild(bars); box.appendChild(p);
+    }
+  }
+
+  function drawRank(rows) {
+    const box = document.getElementById('rank'); box.textContent = '';
+    const top = rows.filter(r => r.cabang === cab).sort((a, b) => b.nilai - a.nilai).slice(0, 10);
+    const max = top.length ? top[0].nilai : 1;
+    const card = box.closest('.card');
+    for (const d of top) {
+      const r = el('div', 'rk');
+      const an = el('span', 'an', (t => t.charAt(0).toUpperCase() + t.slice(1))(d.akun.replace(/^Beban |^Biaya /, ''))); an.title = d.akun; r.appendChild(an);
+      const tr = el('div', 'track'); const f = el('div', 'fill');
+      f.style.width = (d.nilai / max * 100) + '%'; f.style.background = COL[d.kategori] || 'var(--on-kofta)';
+      tr.appendChild(f); r.appendChild(tr);
+      tr.addEventListener('mousemove', ev => showTip(card, ev, d.akun + ' · ' + d.kategori, F.jt(d.nilai) + ' · ' + F.pct(d.pct) + ' dari omset'));
+      tr.addEventListener('mouseleave', hideTip);
+      const rv = el('span', 'rv'); rv.appendChild(el('b', null, F.jt(d.nilai))); rv.appendChild(document.createTextNode(' · ' + F.pct(d.pct)));
+      r.appendChild(rv); box.appendChild(r);
+    }
+  }
+
+  function drawMix(rows) {
+    const box = document.getElementById('mixbars'); box.textContent = '';
+    const card = box.closest('.card');
+    const ns = 'http://www.w3.org/2000/svg';
+    for (const c of ['Onty 1','Onty 2']) {
+      const data = rows.filter(r => r.cabang === c);
+      const fig = el('div', 'pie'); fig.appendChild(el('div', 'nm', c));
+      const svg = document.createElementNS(ns, 'svg'); svg.setAttribute('viewBox', '0 0 200 200'); svg.setAttribute('width', '100%');
+      svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Komposisi penjualan ' + c);
+      const g = document.createElementNS(ns, 'g'); g.setAttribute('transform', 'translate(100,100)'); svg.appendChild(g);
+      const arcs = d3.pie().sort(null).value(d => d.nilai)(data);
+      const arc = d3.arc().innerRadius(0).outerRadius(94);
+      const lab = d3.arc().innerRadius(56).outerRadius(56);
+      for (const a of arcs) {
+        const p = document.createElementNS(ns, 'path'); p.setAttribute('d', arc(a));
+        p.style.fill = MIX_COL[a.data.akun] || 'var(--on-wheat)';
+        p.addEventListener('mousemove', ev => showTip(card, ev, c + ' · ' + a.data.akun, F.jt(a.data.nilai) + ' · ' + F.pct(a.data.pct)));
+        p.addEventListener('mouseleave', hideTip);
+        g.appendChild(p);
+      }
+      for (const a of arcs) {
+        if (a.data.pct < 0.06) continue;
+        const [x, y] = lab.centroid(a);
+        const t = document.createElementNS(ns, 'text'); t.setAttribute('x', x); t.setAttribute('y', y);
+        t.setAttribute('text-anchor', 'middle'); t.setAttribute('dominant-baseline', 'middle');
+        t.setAttribute('font-size', '13'); t.setAttribute('font-weight', '600'); t.setAttribute('pointer-events', 'none');
+        t.style.fill = LIGHT.has(a.data.akun) ? 'var(--on-ink-dark)' : '#fff';
+        t.textContent = F.pct(a.data.pct); g.appendChild(t);
+      }
+      fig.appendChild(svg);
+      const ul = el('ul');
+      for (const d of data) {
+        const li = el('li'); const left = el('span'); const i = el('i'); i.style.background = MIX_COL[d.akun] || 'var(--on-wheat)';
+        left.appendChild(i); left.appendChild(document.createTextNode(d.akun.replace('Penjualan ', '').replace('Pendapatan usaha lainnya', 'Lainnya')));
+        li.appendChild(left); li.appendChild(el('span', null, F.pct(d.pct) + ' · ' + F.jt(d.nilai))); ul.appendChild(li);
+      }
+      fig.appendChild(ul); box.appendChild(fig);
+    }
+  }
+
+  function drawTable(rows) {
+    const tb = document.querySelector('#tbl tbody'); tb.textContent = '';
+    for (const r of rows) {
+      const tr = el('tr');
+      [r.akun, r.kelompok, F.rp(r.onty1), F.pct(r.onty1_pct), F.rp(r.onty2), F.pct(r.onty2_pct), F.rp(r.gabungan), F.pct(r.gabungan_pct)]
+        .forEach(t => tr.appendChild(el('td', null, t)));
+      tb.appendChild(tr);
+    }
+  }
+
+  document.getElementById('cab-ctl').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    cab = b.dataset.c;
+    document.querySelectorAll('#cab-ctl button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    const d = dash.data('beban'); if (d.status === 'ok') drawRank(d.data);
+  });
+
+  dash.onData(() => {
+    const s = dash.data('ringkasan'), a = dash.data('alokasi'), b = dash.data('beban'), m = dash.data('mix'), t = dash.data('perbandingan');
+    fillValues(s.status === 'ok' ? s.data : null);
+    if (a.status === 'ok') drawAlloc(a.data); else if (a.status === 'error') failed(document.getElementById('alloc')); else document.getElementById('alloc').textContent = '';
+    if (s.status === 'ok') {
+      pairs('margins', s.data, [
+        { f: 'margin_kotor', label: 'Margin kotor', hint: 'setelah HPP' },
+        { f: 'margin_operasional', label: 'Margin operasional', hint: 'setelah beban usaha' },
+        { f: 'margin_bersih', label: 'Margin bersih', hint: 'laba akhir' }
+      ], 1, false);
+      pairs('ratios', s.data, [
+        { f: 'hpp_pct', label: 'HPP', hint: 'modal produk' },
+        { f: 'karyawan_pct', label: 'Biaya karyawan', hint: 'gaji, makan, kesejahteraan', warn: v => v > 0.3 },
+        { f: 'opex_pct', label: 'Beban operasional', hint: 'semua beban usaha' },
+        { f: 'prime_pct', label: 'Prime cost', hint: 'HPP + karyawan', bench: 0.65, warn: v => v > 0.65 }
+      ], 1, true);
+      pairs('hpp', s.data, [
+        { f: 'bahan_baku_pct', label: 'Bahan baku', hint: 'termasuk angkut' },
+        { f: 'overhead_pct', label: 'Overhead produksi', hint: 'gas, kemasan, dll.' },
+        { f: 'hpp_pct', label: 'Total HPP', hint: 'bahan + overhead' }
+      ], 0.5, false);
+    } else if (s.status === 'error') ['margins','ratios','hpp'].forEach(id => failed(document.getElementById(id)));
+    if (b.status === 'ok') drawRank(b.data); else if (b.status === 'error') failed(document.getElementById('rank'));
+    if (m.status === 'ok') drawMix(m.data); else if (m.status === 'error') failed(document.getElementById('mixbars'));
+    if (t.status === 'ok') drawTable(t.data);
+  });
+})();
+</script>
+
+</div>
+</body>
+</html>
