@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dashboard Keuangan Onty — Sep 2026</title>
+<title>Dashboard Keuangan Onty — Sep–Okt 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -25,7 +25,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg)}
 </style>
 <script>
 window.dash = (function(){
-  const LR = [{"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Toko", "nilai": 641094600.0}, {"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan SnackBox", "nilai": 155144000.0}, {"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Cake", "nilai": 10005000.0}, {"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Pendapatan usaha lainnya", "nilai": 18894000.0}, {"cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Diskon Penjualan IDR", "nilai": -13536425.0}, {"cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya bahan baku langsung", "nilai": 285291054.16}, {"cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya tenaga kerja langsung", "nilai": 8.0}, {"cabang": "Onty 2", "kelompok": "HPP", "kategori": "Overhead produksi", "akun": "Biaya overhead pabrik", "nilai": 68164702.42}, {"cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Beban Angkut Pembelian", "nilai": 1231700.0}, {"cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Angkut Penjualan", "nilai": 583000.0}, {"cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Marketing", "nilai": 1000000.0}, {"cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Transportasi - Penjualan", "nilai": 222000.0}, {"cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban penyelenggaraan event", "nilai": 6945090.08}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban Gaji dan Upah", "nilai": 146677000.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Software & Sistem ERP", "nilai": 72916.66}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Service & Maintenance", "nilai": 5421000.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Listrik", "nilai": 12092984.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Perlengkapan Toko & Kantor", "nilai": 5602176.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban konsumsi karyawan", "nilai": 21246000.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban kesejahteraan karyawan", "nilai": 7747500.0}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban internet", "nilai": 785463.32}, {"cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Research and Development", "nilai": 90996.0}, {"cabang": "Onty 2", "kelompok": "Penyusutan", "kategori": "Penyusutan", "akun": "Penyusutan Aset Tetap", "nilai": 13002398.25}, {"cabang": "Onty 2", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Beban lain lain", "nilai": 2822241.0}, {"cabang": "Onty 2", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Biaya bank", "nilai": 6500.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Toko", "nilai": 335433600.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan SnackBox", "nilai": 128456725.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Cake", "nilai": 27753000.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Pendapatan usaha lainnya", "nilai": 2602000.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Retur Penjualan", "nilai": -1093000.0}, {"cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Diskon Penjualan IDR", "nilai": -16555750.0}, {"cabang": "Onty 1", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya bahan baku langsung", "nilai": 152504544.85}, {"cabang": "Onty 1", "kelompok": "HPP", "kategori": "Overhead produksi", "akun": "Biaya overhead pabrik", "nilai": 61048890.14}, {"cabang": "Onty 1", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Beban Angkut Pembelian", "nilai": 1615000.0}, {"cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Angkut Penjualan", "nilai": 1454000.0}, {"cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Transportasi - Penjualan", "nilai": 2791500.0}, {"cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban iklan dan promosi", "nilai": 823000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban Gaji dan Upah", "nilai": 145671700.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban DPLK Karyawan", "nilai": 2700000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Pelatihan & Pengembangan", "nilai": 31531532.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Software & Sistem ERP", "nilai": 1938878.83}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Service & Maintenance", "nilai": 4003000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Sewa", "nilai": 2486950.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Listrik", "nilai": 9529128.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Akomodasi & Transportasi", "nilai": 2080000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Perlengkapan Toko & Kantor", "nilai": 1839783.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban konsumsi karyawan", "nilai": 12844500.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban kesejahteraan karyawan", "nilai": 5164000.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban BPJS-TK Karyawan", "nilai": 151199.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban internet", "nilai": 934313.33}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Research and Development", "nilai": 584245.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban JHT", "nilai": 568800.0}, {"cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban sertifikasi halal", "nilai": 7000000.0}, {"cabang": "Onty 1", "kelompok": "Penyusutan", "kategori": "Penyusutan", "akun": "Penyusutan Aset Tetap", "nilai": 10958579.09}, {"cabang": "Onty 1", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Beban lain lain", "nilai": 1613342.22}, {"cabang": "Onty 1", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Biaya bank", "nilai": 97136.98}];
+  const LR = [{"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Toko", "nilai": 641094600.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan SnackBox", "nilai": 155144000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Cake", "nilai": 10005000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Pendapatan usaha lainnya", "nilai": 18894000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Diskon Penjualan IDR", "nilai": -13536425.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya bahan baku langsung", "nilai": 285291054.16}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya tenaga kerja langsung", "nilai": 8.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "HPP", "kategori": "Overhead produksi", "akun": "Biaya overhead pabrik", "nilai": 68164702.42}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Beban Angkut Pembelian", "nilai": 1231700.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Angkut Penjualan", "nilai": 583000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Marketing", "nilai": 1000000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Transportasi - Penjualan", "nilai": 222000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban penyelenggaraan event", "nilai": 6945090.08}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban Gaji dan Upah", "nilai": 146677000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Software & Sistem ERP", "nilai": 72916.66}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Service & Maintenance", "nilai": 5421000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Listrik", "nilai": 12092984.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Perlengkapan Toko & Kantor", "nilai": 5602176.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban konsumsi karyawan", "nilai": 21246000.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban kesejahteraan karyawan", "nilai": 7747500.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban internet", "nilai": 785463.32}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Research and Development", "nilai": 90996.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Penyusutan", "kategori": "Penyusutan", "akun": "Penyusutan Aset Tetap", "nilai": 13002398.25}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Beban lain lain", "nilai": 2822241.0}, {"bulan": "Sep 2026", "cabang": "Onty 2", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Biaya bank", "nilai": 6500.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Toko", "nilai": 335433600.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan SnackBox", "nilai": 128456725.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Cake", "nilai": 27753000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Pendapatan usaha lainnya", "nilai": 2602000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Retur Penjualan", "nilai": -1093000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Diskon Penjualan IDR", "nilai": -16555750.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya bahan baku langsung", "nilai": 152504544.85}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "HPP", "kategori": "Overhead produksi", "akun": "Biaya overhead pabrik", "nilai": 61048890.14}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Beban Angkut Pembelian", "nilai": 1615000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Angkut Penjualan", "nilai": 1454000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Transportasi - Penjualan", "nilai": 2791500.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban iklan dan promosi", "nilai": 823000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban Gaji dan Upah", "nilai": 145671700.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban DPLK Karyawan", "nilai": 2700000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Pelatihan & Pengembangan", "nilai": 31531532.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Software & Sistem ERP", "nilai": 1938878.83}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Service & Maintenance", "nilai": 4003000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Sewa", "nilai": 2486950.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Listrik", "nilai": 9529128.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Akomodasi & Transportasi", "nilai": 2080000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Perlengkapan Toko & Kantor", "nilai": 1839783.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban konsumsi karyawan", "nilai": 12844500.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban kesejahteraan karyawan", "nilai": 5164000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban BPJS-TK Karyawan", "nilai": 151199.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban internet", "nilai": 934313.33}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Research and Development", "nilai": 584245.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban JHT", "nilai": 568800.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban sertifikasi halal", "nilai": 7000000.0}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Penyusutan", "kategori": "Penyusutan", "akun": "Penyusutan Aset Tetap", "nilai": 10958579.09}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Beban lain lain", "nilai": 1613342.22}, {"bulan": "Sep 2026", "cabang": "Onty 1", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Biaya bank", "nilai": 97136.98}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Toko", "nilai": 707884150.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan SnackBox", "nilai": 142416500.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Cake", "nilai": 5835000.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Pendapatan usaha lainnya", "nilai": 19744500.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Retur Penjualan", "nilai": -165000.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Diskon Penjualan IDR", "nilai": -14584775.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya bahan baku langsung", "nilai": 190576331.47}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "HPP", "kategori": "Overhead produksi", "akun": "Biaya overhead pabrik", "nilai": 98221759.82}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Beban Angkut Pembelian", "nilai": 1706500.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Angkut Penjualan", "nilai": 652000.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Transportasi - Penjualan", "nilai": 364500.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban iklan dan promosi", "nilai": 250000.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban penyelenggaraan event", "nilai": 669610.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Komisi Penjualan", "nilai": 640000.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban Gaji dan Upah", "nilai": 163966800.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Software & Sistem ERP", "nilai": 271916.66}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Service & Maintenance", "nilai": 2604000.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Listrik", "nilai": 19817604.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Perlengkapan Toko & Kantor", "nilai": 4313064.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban konsumsi karyawan", "nilai": 21512000.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban kesejahteraan karyawan", "nilai": 5695000.0}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban internet", "nilai": 635463.32}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Penyusutan", "kategori": "Penyusutan", "akun": "Penyusutan Aset Tetap", "nilai": 13002398.25}, {"bulan": "Okt 2026", "cabang": "Onty 2", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Beban lain lain", "nilai": 654500.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Toko", "nilai": 322550000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan SnackBox", "nilai": 108516500.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Penjualan Cake", "nilai": 22220000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Pendapatan usaha lainnya", "nilai": 1881500.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Retur Penjualan", "nilai": -72000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Pendapatan", "kategori": "Pendapatan", "akun": "Diskon Penjualan IDR", "nilai": -12710550.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Biaya bahan baku langsung", "nilai": 141209365.19}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "HPP", "kategori": "Overhead produksi", "akun": "Biaya overhead pabrik", "nilai": 32071523.34}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "HPP", "kategori": "Bahan baku", "akun": "Beban Angkut Pembelian", "nilai": 978000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Angkut Penjualan", "nilai": 1505000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Marketing", "nilai": 2600000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban Transportasi - Penjualan", "nilai": 2325500.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban iklan dan promosi", "nilai": 1538500.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban penjualan", "kategori": "Marketing & penjualan", "akun": "Beban penyelenggaraan event", "nilai": 25502.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban Gaji dan Upah", "nilai": 142732300.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban DPLK Karyawan", "nilai": 2700000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Pelatihan & Pengembangan", "nilai": 1120016.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Software & Sistem ERP", "nilai": 2221128.83}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Service & Maintenance", "nilai": 20588500.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Sewa", "nilai": 500000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Listrik", "nilai": 9822447.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Akomodasi & Transportasi", "nilai": 640000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban Perlengkapan Toko & Kantor", "nilai": 4482328.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban konsumsi karyawan", "nilai": 12948500.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban kesejahteraan karyawan", "nilai": 4113200.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban BPJS-TK Karyawan", "nilai": 151199.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban internet", "nilai": 685623.33}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Pelatihan & sertifikasi", "akun": "Beban Research and Development", "nilai": 558742.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Karyawan", "akun": "Beban JHT", "nilai": 568800.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban umum & administrasi", "kategori": "Operasional toko", "akun": "Beban perizinan kendaraan", "nilai": 221000.0}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Penyusutan", "kategori": "Penyusutan", "akun": "Penyusutan Aset Tetap", "nilai": 10971594.14}, {"bulan": "Okt 2026", "cabang": "Onty 1", "kelompok": "Beban non-operasional", "kategori": "Lain-lain", "akun": "Beban lain lain", "nilai": 2156856.77}];
   const store = { lr: LR }, fns = [];
   return {
     colors: [],
@@ -128,46 +128,77 @@ window.dash = (function(){
 .ofd .foot{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.6;max-width:90ch}
 .ofd .foot a{color:inherit}
 </style>
+<style>
+.ofd .topbar{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--cds-gap-md)}
+.ofd .topbar .seg-ctl{margin-bottom:0}
+.ofd .delta{font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.ofd .delta.up{color:var(--color-ok)} .ofd .delta.down{color:var(--color-bad)} .ofd .delta.flat{color:var(--color-fg-muted)}
+.ofd .tren-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:var(--cds-gap-lg)}
+.ofd .tren-grid h4{margin:0 0 6px;font-size:var(--cds-font-size-body);font-weight:500}
+.ofd .tren-grid .bline{grid-template-columns:4.2rem 1fr 5.6rem}
+.ofd .tren-grp{padding-block:6px;border-bottom:1px solid var(--on-line)}
+.ofd .tren-grp:last-child{border-bottom:0}
+.ofd .tren-grp .nm{font-size:var(--cds-font-size-caption);font-weight:600;margin-bottom:3px}
+</style>
 
 <div class="ofd">
-  <header class="hd" id="ringkasan-atas">
-    <div class="eyebrow">Onty Bakery &amp; Resto · Laba rugi September 2026 · Onty 1 &amp; Onty 2</div>
-    <h1>Kesehatan keuangan Onty, September 2026</h1>
-    <p id="takeaway">Dari setiap Rp100 penjualan bersih, Onty menyimpan <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Gabungan" data-fmt="rp100">—</b> sebagai laba bersih. Onty 2 menyumbang omset terbesar dengan margin bersih <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Onty 2" data-fmt="pct">—</b>, sedangkan Onty 1 <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Onty 1" data-fmt="pct">—</b>. Setelah HPP Onty 1 dikoreksi, laba Onty 1 tinggal tipis: modal produk dan biaya karyawannya bersama-sama memakan sebagian besar penjualan.</p>
+  <header class="hd topbar" id="ringkasan-atas">
+    <div>
+      <div class="eyebrow">Onty Bakery &amp; Resto · Laba rugi <span id="eyebrow-bulan">—</span> · Onty 1 &amp; Onty 2</div>
+      <h1>Kesehatan keuangan Onty, <span id="h1-bulan">—</span></h1>
+      <p id="takeaway">Dari setiap Rp100 penjualan bersih, Onty menyimpan <b class="v" data-source="ringkasan" data-c="Gabungan" data-field="margin_bersih" data-fmt="rp100">—</b> sebagai laba bersih. Margin bersih Onty 2 <b class="v" data-source="ringkasan" data-c="Onty 2" data-field="margin_bersih" data-fmt="pct">—</b>, Onty 1 <b class="v" data-source="ringkasan" data-c="Onty 1" data-field="margin_bersih" data-fmt="pct">—</b>.</p>
+    </div>
+    <div class="seg-ctl" role="group" aria-label="Pilih bulan" id="bulan-ctl"></div>
   </header>
 
   <section class="ofd-tiles" aria-label="Angka utama gabungan">
     <div class="tile">
       <span class="lbl">Penjualan bersih (setelah diskon)</span>
-      <span class="big v" data-source="ringkasan" data-field="pendapatan" data-where="cabang=Gabungan" data-fmt="jt">—</span>
-      <span class="sub">Onty 1 <b class="v" data-source="ringkasan" data-field="pendapatan" data-where="cabang=Onty 1" data-fmt="jt">—</b> · Onty 2 <b class="v" data-source="ringkasan" data-field="pendapatan" data-where="cabang=Onty 2" data-fmt="jt">—</b></span>
+      <span class="big v" data-source="ringkasan" data-c="Gabungan" data-field="pendapatan" data-fmt="jt">—</span>
+      <span class="delta v" data-source="ringkasan" data-c="Gabungan" data-field="d_pendapatan" data-fmt="dpct" data-good="up"></span>
+      <span class="sub">Onty 1 <b class="v" data-source="ringkasan" data-c="Onty 1" data-field="pendapatan" data-fmt="jt">—</b> · Onty 2 <b class="v" data-source="ringkasan" data-c="Onty 2" data-field="pendapatan" data-fmt="jt">—</b></span>
     </div>
     <div class="tile">
       <span class="lbl">HPP (modal produk)</span>
-      <span class="big v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Gabungan" data-fmt="pct">—</span>
-      <span class="sub">dari omset · Onty 1 <b class="v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b> · Onty 2 <b class="v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b></span>
+      <span class="big v" data-source="ringkasan" data-c="Gabungan" data-field="hpp_pct" data-fmt="pct">—</span>
+      <span class="delta v" data-source="ringkasan" data-c="Gabungan" data-field="d_hpp_pct" data-fmt="dpp" data-good="down"></span>
+      <span class="sub">dari omset · Onty 1 <b class="v" data-source="ringkasan" data-c="Onty 1" data-field="hpp_pct" data-fmt="pct">—</b> · Onty 2 <b class="v" data-source="ringkasan" data-c="Onty 2" data-field="hpp_pct" data-fmt="pct">—</b></span>
     </div>
     <div class="tile">
       <span class="lbl">Laba kotor</span>
-      <span class="big v" data-source="ringkasan" data-field="laba_kotor" data-where="cabang=Gabungan" data-fmt="jt">—</span>
-      <span class="sub">margin <b class="v" data-source="ringkasan" data-field="margin_kotor" data-where="cabang=Gabungan" data-fmt="pct">—</b> · setelah dikurangi HPP</span>
+      <span class="big v" data-source="ringkasan" data-c="Gabungan" data-field="laba_kotor" data-fmt="jt">—</span>
+      <span class="delta v" data-source="ringkasan" data-c="Gabungan" data-field="d_laba_kotor" data-fmt="dpct" data-good="up"></span>
+      <span class="sub">margin <b class="v" data-source="ringkasan" data-c="Gabungan" data-field="margin_kotor" data-fmt="pct">—</b> · setelah dikurangi HPP</span>
     </div>
     <div class="tile">
       <span class="lbl">Beban operasional</span>
-      <span class="big v" data-source="ringkasan" data-field="beban_operasional" data-where="cabang=Gabungan" data-fmt="jt">—</span>
-      <span class="sub"><b class="v" data-source="ringkasan" data-field="opex_pct" data-where="cabang=Gabungan" data-fmt="pct">—</b> dari omset · gaji, listrik, dll.</span>
+      <span class="big v" data-source="ringkasan" data-c="Gabungan" data-field="beban_operasional" data-fmt="jt">—</span>
+      <span class="delta v" data-source="ringkasan" data-c="Gabungan" data-field="d_beban_operasional" data-fmt="dpct" data-good="down"></span>
+      <span class="sub"><b class="v" data-source="ringkasan" data-c="Gabungan" data-field="opex_pct" data-fmt="pct">—</b> dari omset · gaji, listrik, dll.</span>
     </div>
     <div class="tile">
       <span class="lbl">Laba bersih</span>
-      <span class="big v" data-source="ringkasan" data-field="laba_bersih" data-where="cabang=Gabungan" data-fmt="jt">—</span>
-      <span class="sub">margin <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Gabungan" data-fmt="pct">—</b> <span class="pill" id="pill-net"></span></span>
+      <span class="big v" data-source="ringkasan" data-c="Gabungan" data-field="laba_bersih" data-fmt="jt">—</span>
+      <span class="delta v" data-source="ringkasan" data-c="Gabungan" data-field="d_laba_bersih" data-fmt="dpct" data-good="up"></span>
+      <span class="sub">margin <b class="v" data-source="ringkasan" data-c="Gabungan" data-field="margin_bersih" data-fmt="pct">—</b> <span class="pill" id="pill-net"></span></span>
+    </div>
+  </section>
+
+  <section id="tren">
+    <div class="card" data-source="ringkasan">
+      <h3>Tren bulanan per cabang</h3>
+      <div class="note">Penjualan bersih dan laba bersih tiap bulan. Bulan baru akan otomatis bertambah di sini setiap laporan diperbarui.</div>
+      <div class="tren-grid">
+        <div><h4>Penjualan bersih</h4><div id="tren-omset"></div></div>
+        <div><h4>Laba bersih</h4><div id="tren-laba"></div></div>
+      </div>
     </div>
   </section>
 
   <section id="ke-mana-uangnya">
     <div class="card" data-source="alokasi">
       <h3>Dari Rp100 penjualan, ke mana uangnya?</h3>
-      <div class="note">Setiap batang = Rp100 penjualan bersih. Arahkan kursor ke tiap warna untuk melihat nilai rupiahnya. Bagian hijau paling kanan adalah yang tersisa sebagai laba bersih.</div>
+      <div class="note">Setiap batang = Rp100 penjualan bersih bulan terpilih. Arahkan kursor ke tiap warna untuk melihat nilai rupiahnya. Bagian hijau paling kanan adalah yang tersisa sebagai laba bersih.</div>
       <div id="alloc" style="min-height:150px"></div>
       <div class="legend" id="alloc-legend"></div>
     </div>
@@ -206,7 +237,7 @@ window.dash = (function(){
     <div class="grid">
       <div class="card" data-source="ringkasan">
         <h3>Isi HPP: bahan baku vs overhead produksi</h3>
-        <div class="note">Persen dari penjualan bersih. Bahan baku termasuk ongkos angkut pembelian.</div>
+        <div class="note">Persen dari penjualan bersih. Bahan baku termasuk ongkos angkut pembelian. Garis putus-putus = gabungan.</div>
         <div id="hpp" style="min-height:150px"></div>
       </div>
       <div class="card" data-source="mix">
@@ -218,47 +249,69 @@ window.dash = (function(){
   </section>
 
   <section id="temuan">
-    <h2>Temuan &amp; saran untuk owner</h2>
+    <h2>Temuan &amp; saran untuk owner · Oktober 2026</h2>
     <div class="ins">
       <div class="card">
-        <span class="pill bad">Laba Onty 1 tipis</span>
-        <p>Margin bersih Onty 1 hanya <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Onty 1" data-fmt="pct">—</b> (<b class="v" data-source="ringkasan" data-field="laba_bersih" data-where="cabang=Onty 1" data-fmt="jt">—</b>), sedangkan Onty 2 <b class="v" data-source="ringkasan" data-field="margin_bersih" data-where="cabang=Onty 2" data-fmt="pct">—</b>. HPP + biaya karyawan Onty 1 mencapai <b class="v" data-source="ringkasan" data-field="prime_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b> dari penjualan.</p>
-        <div class="do">Dengan penjualan Onty 1 yang lebih kecil, biaya tetap (terutama gaji) terasa berat. Prioritas: naikkan penjualan Onty 1 (SnackBox, hampers, pesanan cake) dan tinjau jumlah staf per shift.</div>
+        <span class="pill ok">Membaik</span>
+        <p>Laba bersih gabungan Oktober <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Gabungan" data-field="laba_bersih" data-fmt="jt">—</b>, naik <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Gabungan" data-field="d_laba_bersih" data-fmt="abspct">—</b> dari September. Padahal penjualan hanya naik <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Gabungan" data-field="d_pendapatan" data-fmt="abspct">—</b>: kenaikan laba hampir seluruhnya datang dari HPP yang turun.</p>
+        <div class="do">Kabar baik, teman Onty. Tapi laba yang naik karena biaya turun perlu dipastikan bisa bertahan, bukan kebetulan satu bulan.</div>
       </div>
       <div class="card">
-        <span class="pill bad">Biaya terbesar</span>
-        <p>Biaya karyawan Onty 1 <b class="v" data-source="ringkasan" data-field="karyawan_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b> dari omset, Onty 2 hanya <b class="v" data-source="ringkasan" data-field="karyawan_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b>. Gaji kedua cabang hampir sama, padahal omset Onty 1 jauh lebih kecil.</p>
-        <div class="do">Cek jadwal shift dan jumlah staf per jam sepi di Onty 1, atau dorong omset Onty 1 (SnackBox &amp; cake pesanan) agar gaji yang sama menghasilkan penjualan lebih besar.</div>
+        <span class="pill warn">Perlu dipastikan</span>
+        <p>HPP Onty 2 turun dari <b class="v" data-source="ringkasan" data-b="Sep 2026" data-c="Onty 2" data-field="hpp_pct" data-fmt="pct">—</b> ke <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 2" data-field="hpp_pct" data-fmt="pct">—</b>, Onty 1 dari <b class="v" data-source="ringkasan" data-b="Sep 2026" data-c="Onty 1" data-field="hpp_pct" data-fmt="pct">—</b> ke <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 1" data-field="hpp_pct" data-fmt="pct">—</b>. Penurunan sebesar ini dalam sebulan jarang terjadi.</p>
+        <div class="do">Cek ke tim akunting: apakah karena harga bahan turun, resep/porsi berubah, atau waktu stock opname yang bergeser? Lakukan stock opname di tanggal yang sama tiap akhir bulan supaya HPP antar bulan bisa dibandingkan.</div>
       </div>
       <div class="card">
-        <span class="pill ok">Biaya sekali jalan</span>
-        <p>Onty 1 menanggung pelatihan dan sertifikasi halal senilai <b class="v" data-source="ringkasan" data-field="beban_sekali" data-where="cabang=Onty 1" data-fmt="jt">—</b>. Tanpa biaya ini, margin bersih Onty 1 menjadi <b class="v" data-source="ringkasan" data-field="margin_bersih_normal" data-where="cabang=Onty 1" data-fmt="pct">—</b>.</p>
-        <div class="do">Ini investasi, bukan kebocoran. Ke depan, sebaiknya dibagi rata ke dua cabang (atau dicatat sebagai biaya pusat) supaya perbandingan cabang adil.</div>
+        <span class="pill bad">Onty 1 perlu perhatian</span>
+        <p>Penjualan Onty 1 turun <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 1" data-field="d_pendapatan" data-fmt="abspct">—</b>, margin bersihnya <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 1" data-field="margin_bersih" data-fmt="pct">—</b>. Biaya karyawan memakan <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 1" data-field="karyawan_pct" data-fmt="pct">—</b> dari penjualan; prime cost <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 1" data-field="prime_pct" data-fmt="pct">—</b>.</p>
+        <div class="do">Gaji Onty 1 hampir sama dengan Onty 2 meski penjualannya separuhnya. Dua jalan: dorong penjualan Onty 1 (SnackBox kantor, hampers, pesanan cake) dan tinjau jumlah staf per shift di jam sepi.</div>
       </div>
       <div class="card">
-        <span class="pill warn">Diskon</span>
-        <p>Diskon &amp; retur Onty 1 mencapai <b class="v" data-source="ringkasan" data-field="diskon_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b> dari penjualan kotor, dua kali lipat Onty 2 (<b class="v" data-source="ringkasan" data-field="diskon_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b>).</p>
-        <div class="do">Pastikan setiap promo punya target (misalnya naik transaksi). Kalau tidak menambah omset, kurangi frekuensinya atau ganti ke bundling.</div>
+        <span class="pill warn">Lonjakan biaya</span>
+        <p>Biaya service &amp; maintenance Onty 1 Oktober <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 1" data-field="service_maintenance" data-fmt="jt">—</b>, padahal September <b class="v" data-source="ringkasan" data-b="Sep 2026" data-c="Onty 1" data-field="service_maintenance" data-fmt="jt">—</b>.</p>
+        <div class="do">Pastikan ini perbaikan sekali jalan. Kalau berupa renovasi atau penggantian mesin bernilai besar, sebaiknya dicatat sebagai aset dan disusutkan, bukan beban satu bulan.</div>
       </div>
       <div class="card">
-        <span class="pill warn">HPP tinggi</span>
-        <p>HPP kedua cabang sekarang setara: Onty 1 <b class="v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Onty 1" data-fmt="pct">—</b>, Onty 2 <b class="v" data-source="ringkasan" data-field="hpp_pct" data-where="cabang=Onty 2" data-fmt="pct">—</b>. Prime cost gabungan <b class="v" data-source="ringkasan" data-field="prime_pct" data-where="cabang=Gabungan" data-fmt="pct">—</b>, di atas patokan umum 60–65%.</p>
-        <div class="do">Cek harga beli bahan utama (telur, tepung, mentega, gula), takaran resep, dan produk sisa/terbuang. Produk dengan HPP tinggi bisa dinaikkan harganya atau dijual dalam bundling hampers yang marginnya lebih baik.</div>
+        <span class="pill ok">Bintang bulan ini</span>
+        <p>Onty 2 mencetak margin bersih <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 2" data-field="margin_bersih" data-fmt="pct">—</b> dengan penjualan naik <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 2" data-field="d_pendapatan" data-fmt="abspct">—</b>. Prime cost <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 2" data-field="prime_pct" data-fmt="pct">—</b>, di bawah patokan 60–65%.</p>
+        <div class="do">Catat apa yang berjalan baik di Onty 2 (jadwal produksi, pembelian bahan, pola shift) dan terapkan ke Onty 1.</div>
       </div>
       <div class="card">
-        <span class="pill warn">Kelengkapan data</span>
-        <p>Onty 2 tidak mencatat beban sewa, BPJS, maupun JHT, sedangkan Onty 1 mencatatnya. Biaya marketing kedua cabang juga sangat kecil, <b class="v" data-source="ringkasan" data-field="marketing_pct" data-where="cabang=Gabungan" data-fmt="pct">—</b> dari omset.</p>
-        <div class="do">Cek apakah biaya ini memang tidak ada atau dicatat di tempat lain. Untuk target brand nasional, anggaran marketing 2–5% dari omset layak dipertimbangkan.</div>
+        <span class="pill warn">Marketing &amp; data</span>
+        <p>Biaya marketing &amp; penjualan gabungan hanya <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Gabungan" data-field="marketing_pct" data-fmt="pct">—</b> dari omset, Onty 2 hanya <b class="v" data-source="ringkasan" data-b="Okt 2026" data-c="Onty 2" data-field="marketing_pct" data-fmt="pct">—</b>. Onty 2 juga masih tanpa beban sewa dan BPJS.</p>
+        <div class="do">Untuk target brand Roll Cake nasional, anggaran marketing 2–5% dari omset layak dipertimbangkan. Cek juga apakah sewa dan BPJS Onty 2 memang tidak ada atau dicatat di tempat lain.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tren-tabel">
+    <div class="card">
+      <h3>Ringkasan per bulan</h3>
+      <div class="note">Angka kunci tiap cabang per bulan, untuk dibandingkan berdampingan.</div>
+      <div class="tbl-wrap">
+        <table id="tbl-tren" data-source="ringkasan" data-row-key="bulan,cabang">
+          <thead><tr>
+            <th data-field="bulan">Bulan</th>
+            <th data-field="cabang">Cabang</th>
+            <th data-field="pendapatan">Penjualan (Rp)</th>
+            <th data-field="hpp_pct">HPP %</th>
+            <th data-field="margin_kotor">Margin kotor</th>
+            <th data-field="karyawan_pct">Karyawan %</th>
+            <th data-field="laba_bersih">Laba bersih (Rp)</th>
+            <th data-field="margin_bersih">Margin bersih</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
       </div>
     </div>
   </section>
 
   <section id="rincian">
     <div class="card">
-      <h3>Rincian laba rugi per akun</h3>
+      <h3>Rincian laba rugi per akun · <span id="rincian-bulan">—</span></h3>
       <div class="note">Semua akun dari laporan Accurate, disandingkan per cabang. Persen = terhadap penjualan bersih cabang masing-masing.</div>
       <div class="tbl-wrap">
-        <table id="tbl" data-source="perbandingan" data-row-key="akun">
+        <table id="tbl" data-source="perbandingan" data-row-key="bulan,akun">
           <thead><tr>
             <th data-field="akun">Akun</th>
             <th data-field="kelompok">Kelompok</th>
@@ -275,58 +328,73 @@ window.dash = (function(){
     </div>
   </section>
 
-  <p class="foot">Sumber: Laporan Laba/Rugi (Standar) Accurate, cabang Onty 1 dan Onty 2, periode 1–30 September 2026, versi revisi dicetak 9 Oktober 2026 pukul 15.21. Pengelompokan biaya (karyawan, operasional toko, dll.) dibuat untuk memudahkan membaca. Patokan prime cost 60–65%: <a href="https://pos.toasttab.com/blog/on-the-line/restaurant-prime-cost" target="_blank" rel="noopener">Toast, Restaurant Prime Cost</a>. Catatan kecil: Onty 2 mencatat "Biaya tenaga kerja langsung" Rp8, kemungkinan salah input.</p>
+  <p class="foot">Sumber: Laporan Laba/Rugi (Standar) Accurate, cabang Onty 1 dan Onty 2 — September 2026 (versi revisi, dicetak 9 Oktober 2026 pukul 15.21) dan Oktober 2026 (dicetak 6 November 2026). Pengelompokan biaya (karyawan, operasional toko, dll.) dibuat untuk memudahkan membaca. Patokan prime cost 60–65%: <a href="https://pos.toasttab.com/blog/on-the-line/restaurant-prime-cost" target="_blank" rel="noopener">Toast, Restaurant Prime Cost</a>.</p>
 </div>
 
 <script>
 dash.calc('ringkasan', {
   inputs: ['lr'],
-  title: 'Ringkasan & margin per cabang',
-  description: 'Total pendapatan, HPP, beban dan laba, serta rasionya terhadap penjualan bersih, untuk Onty 1, Onty 2 dan gabungan.',
-  fn: (lr) => ['Onty 1','Onty 2','Gabungan'].map(c => {
-    const r = lr.filter(x => c === 'Gabungan' || x.cabang === c);
-    const sum = f => r.filter(f).reduce((a, x) => a + Number(x.nilai), 0);
-    const pendapatan = sum(x => x.kelompok === 'Pendapatan');
-    const bruto = sum(x => x.kelompok === 'Pendapatan' && Number(x.nilai) > 0);
-    const hpp = sum(x => x.kelompok === 'HPP');
-    const opex = sum(x => ['Beban penjualan','Beban umum & administrasi','Penyusutan'].includes(x.kelompok));
-    const nonop = sum(x => x.kelompok === 'Beban non-operasional');
-    const karyawan = sum(x => x.kategori === 'Karyawan');
-    const sekali = sum(x => x.akun === 'Beban Pelatihan & Pengembangan' || x.akun === 'Beban sertifikasi halal');
-    const marketing = sum(x => ['Beban Marketing','Beban penyelenggaraan event','Beban iklan dan promosi'].includes(x.akun));
-    const diskon = -sum(x => x.kelompok === 'Pendapatan' && Number(x.nilai) < 0);
-    const lk = pendapatan - hpp, lo = lk - opex, lb = lo - nonop;
-    return {
-      cabang: c, pendapatan, hpp, laba_kotor: lk, beban_operasional: opex, laba_operasional: lo,
-      beban_non_operasional: nonop, laba_bersih: lb,
-      hpp_pct: hpp / pendapatan, margin_kotor: lk / pendapatan, opex_pct: opex / pendapatan,
-      margin_operasional: lo / pendapatan, margin_bersih: lb / pendapatan,
-      bahan_baku_pct: sum(x => x.kategori === 'Bahan baku') / pendapatan,
-      overhead_pct: sum(x => x.kategori === 'Overhead produksi') / pendapatan,
-      karyawan_pct: karyawan / pendapatan, prime_pct: (hpp + karyawan) / pendapatan,
-      marketing_pct: marketing / pendapatan, diskon_pct: diskon / bruto,
-      beban_sekali: sekali, margin_bersih_normal: (lb + sekali) / pendapatan
-    };
-  })
+  title: 'Ringkasan & margin per bulan',
+  description: 'Total pendapatan, HPP, beban dan laba, rasio terhadap penjualan bersih, dan perubahan dari bulan sebelumnya, per bulan dan cabang.',
+  fn: (lr) => {
+    const months = [...new Set(lr.map(x => x.bulan))];
+    const out = [];
+    months.forEach((b, mi) => {
+      for (const c of ['Onty 1','Onty 2','Gabungan']) {
+        const r = lr.filter(x => x.bulan === b && (c === 'Gabungan' || x.cabang === c));
+        const sum = f => r.filter(f).reduce((a, x) => a + Number(x.nilai), 0);
+        const pendapatan = sum(x => x.kelompok === 'Pendapatan');
+        const bruto = sum(x => x.kelompok === 'Pendapatan' && Number(x.nilai) > 0);
+        const hpp = sum(x => x.kelompok === 'HPP');
+        const opex = sum(x => ['Beban penjualan','Beban umum & administrasi','Penyusutan'].includes(x.kelompok));
+        const nonop = sum(x => x.kelompok === 'Beban non-operasional');
+        const karyawan = sum(x => x.kategori === 'Karyawan');
+        const marketing = sum(x => x.kategori === 'Marketing & penjualan');
+        const diskon = -sum(x => x.kelompok === 'Pendapatan' && Number(x.nilai) < 0);
+        const lk = pendapatan - hpp, lo = lk - opex, lb = lo - nonop;
+        const row = {
+          bulan: b, urutan: mi, cabang: c, pendapatan, hpp, laba_kotor: lk, beban_operasional: opex,
+          laba_operasional: lo, beban_non_operasional: nonop, laba_bersih: lb,
+          hpp_pct: hpp / pendapatan, margin_kotor: lk / pendapatan, opex_pct: opex / pendapatan,
+          margin_operasional: lo / pendapatan, margin_bersih: lb / pendapatan,
+          bahan_baku_pct: sum(x => x.kategori === 'Bahan baku') / pendapatan,
+          overhead_pct: sum(x => x.kategori === 'Overhead produksi') / pendapatan,
+          karyawan_pct: karyawan / pendapatan, prime_pct: (hpp + karyawan) / pendapatan,
+          marketing_pct: marketing / pendapatan, diskon_pct: diskon / bruto,
+          service_maintenance: sum(x => x.akun === 'Beban Service & Maintenance')
+        };
+        const prev = out.find(p => p.urutan === mi - 1 && p.cabang === c);
+        row.bulan_lalu = prev ? prev.bulan : null;
+        row.d_pendapatan = prev ? pendapatan / prev.pendapatan - 1 : null;
+        row.d_laba_bersih = prev ? lb / prev.laba_bersih - 1 : null;
+        row.d_laba_kotor = prev ? lk / prev.laba_kotor - 1 : null;
+        row.d_beban_operasional = prev ? opex / prev.beban_operasional - 1 : null;
+        row.d_hpp_pct = prev ? row.hpp_pct - prev.hpp_pct : null;
+        row.d_margin_bersih = prev ? row.margin_bersih - prev.margin_bersih : null;
+        out.push(row);
+      }
+    });
+    return out;
+  }
 });
 
 dash.calc('alokasi', {
   inputs: ['lr'],
   title: 'Alokasi tiap Rp100 penjualan',
-  description: 'Biaya per kategori dan sisa laba bersih sebagai bagian dari penjualan bersih, per cabang.',
+  description: 'Biaya per kategori dan sisa laba bersih sebagai bagian dari penjualan bersih, per bulan dan cabang.',
   fn: (lr) => {
     const kat = ['Bahan baku','Overhead produksi','Karyawan','Operasional toko','Pelatihan & sertifikasi','Marketing & penjualan','Penyusutan','Lain-lain'];
     const out = [];
-    for (const c of ['Onty 1','Onty 2','Gabungan']) {
-      const r = lr.filter(x => c === 'Gabungan' || x.cabang === c);
+    for (const b of [...new Set(lr.map(x => x.bulan))]) for (const c of ['Onty 1','Onty 2','Gabungan']) {
+      const r = lr.filter(x => x.bulan === b && (c === 'Gabungan' || x.cabang === c));
       const pend = r.filter(x => x.kelompok === 'Pendapatan').reduce((a, x) => a + Number(x.nilai), 0);
       let biaya = 0;
       for (const k of kat) {
         const n = r.filter(x => x.kategori === k).reduce((a, x) => a + Number(x.nilai), 0);
         biaya += n;
-        out.push({ cabang: c, kategori: k, nilai: n, pct: n / pend });
+        out.push({ bulan: b, cabang: c, kategori: k, nilai: n, pct: n / pend });
       }
-      out.push({ cabang: c, kategori: 'Laba bersih', nilai: pend - biaya, pct: (pend - biaya) / pend });
+      out.push({ bulan: b, cabang: c, kategori: 'Laba bersih', nilai: pend - biaya, pct: (pend - biaya) / pend });
     }
     return out;
   }
@@ -335,15 +403,15 @@ dash.calc('alokasi', {
 dash.calc('beban', {
   inputs: ['lr'],
   title: 'Pos biaya per akun',
-  description: 'Setiap akun biaya (HPP, operasional, non-operasional) dan porsinya dari penjualan bersih, per cabang dan gabungan.',
+  description: 'Setiap akun biaya (HPP, operasional, non-operasional) dan porsinya dari penjualan bersih, per bulan dan cabang.',
   fn: (lr) => {
     const out = [];
-    for (const c of ['Onty 1','Onty 2','Gabungan']) {
-      const r = lr.filter(x => c === 'Gabungan' || x.cabang === c);
+    for (const b of [...new Set(lr.map(x => x.bulan))]) for (const c of ['Onty 1','Onty 2','Gabungan']) {
+      const r = lr.filter(x => x.bulan === b && (c === 'Gabungan' || x.cabang === c));
       const pend = r.filter(x => x.kelompok === 'Pendapatan').reduce((a, x) => a + Number(x.nilai), 0);
       const by = new Map();
       for (const x of r) if (x.kelompok !== 'Pendapatan') {
-        const o = by.get(x.akun) || { cabang: c, akun: x.akun, kategori: x.kategori, nilai: 0 };
+        const o = by.get(x.akun) || { bulan: b, cabang: c, akun: x.akun, kategori: x.kategori, nilai: 0 };
         o.nilai += Number(x.nilai); by.set(x.akun, o);
       }
       for (const o of by.values()) out.push({ ...o, pct: o.nilai / pend });
@@ -355,13 +423,13 @@ dash.calc('beban', {
 dash.calc('mix', {
   inputs: ['lr'],
   title: 'Komposisi penjualan',
-  description: 'Porsi tiap jenis penjualan dari penjualan kotor (sebelum diskon dan retur) per cabang.',
+  description: 'Porsi tiap jenis penjualan dari penjualan kotor (sebelum diskon dan retur), per bulan dan cabang.',
   fn: (lr) => {
     const out = [];
-    for (const c of ['Onty 1','Onty 2']) {
-      const r = lr.filter(x => x.cabang === c && x.kelompok === 'Pendapatan' && Number(x.nilai) > 0);
+    for (const b of [...new Set(lr.map(x => x.bulan))]) for (const c of ['Onty 1','Onty 2']) {
+      const r = lr.filter(x => x.bulan === b && x.cabang === c && x.kelompok === 'Pendapatan' && Number(x.nilai) > 0);
       const tot = r.reduce((a, x) => a + Number(x.nilai), 0);
-      for (const x of r) out.push({ cabang: c, akun: x.akun, nilai: Number(x.nilai), pct: Number(x.nilai) / tot });
+      for (const x of r) out.push({ bulan: b, cabang: c, akun: x.akun, nilai: Number(x.nilai), pct: Number(x.nilai) / tot });
     }
     return out;
   }
@@ -370,20 +438,25 @@ dash.calc('mix', {
 dash.calc('perbandingan', {
   inputs: ['lr'],
   title: 'Laba rugi per akun, berdampingan',
-  description: 'Nilai tiap akun untuk Onty 1, Onty 2 dan gabungan, dengan persen terhadap penjualan bersih masing-masing.',
+  description: 'Nilai tiap akun untuk Onty 1, Onty 2 dan gabungan per bulan, dengan persen terhadap penjualan bersih masing-masing.',
   fn: (lr) => {
-    const pend = c => lr.filter(x => x.kelompok === 'Pendapatan' && (c === 'all' || x.cabang === c)).reduce((a, x) => a + Number(x.nilai), 0);
-    const p1 = pend('Onty 1'), p2 = pend('Onty 2'), pg = pend('all');
     const order = ['Pendapatan','HPP','Beban penjualan','Beban umum & administrasi','Penyusutan','Beban non-operasional'];
-    const by = new Map();
-    for (const x of lr) {
-      const o = by.get(x.akun) || { akun: x.akun, kelompok: x.kelompok, onty1: 0, onty2: 0 };
-      if (x.cabang === 'Onty 1') o.onty1 += Number(x.nilai); else o.onty2 += Number(x.nilai);
-      by.set(x.akun, o);
+    const out = [];
+    for (const b of [...new Set(lr.map(x => x.bulan))]) {
+      const m = lr.filter(x => x.bulan === b);
+      const pend = c => m.filter(x => x.kelompok === 'Pendapatan' && (c === 'all' || x.cabang === c)).reduce((a, x) => a + Number(x.nilai), 0);
+      const p1 = pend('Onty 1'), p2 = pend('Onty 2'), pg = pend('all');
+      const by = new Map();
+      for (const x of m) {
+        const o = by.get(x.akun) || { bulan: b, akun: x.akun, kelompok: x.kelompok, onty1: 0, onty2: 0 };
+        if (x.cabang === 'Onty 1') o.onty1 += Number(x.nilai); else o.onty2 += Number(x.nilai);
+        by.set(x.akun, o);
+      }
+      out.push(...[...by.values()].map(o => ({ ...o, gabungan: o.onty1 + o.onty2,
+        onty1_pct: o.onty1 / p1, onty2_pct: o.onty2 / p2, gabungan_pct: (o.onty1 + o.onty2) / pg }))
+        .sort((a, c) => order.indexOf(a.kelompok) - order.indexOf(c.kelompok) || Math.abs(c.gabungan) - Math.abs(a.gabungan)));
     }
-    return [...by.values()].map(o => ({ ...o, gabungan: o.onty1 + o.onty2,
-      onty1_pct: o.onty1 / p1, onty2_pct: o.onty2 / p2, gabungan_pct: (o.onty1 + o.onty2) / pg }))
-      .sort((a, b) => order.indexOf(a.kelompok) - order.indexOf(b.kelompok) || Math.abs(b.gabungan) - Math.abs(a.gabungan));
+    return out;
   }
 });
 
@@ -391,11 +464,15 @@ dash.calc('perbandingan', {
   const root = document.querySelector('.ofd');
   const idr = new Intl.NumberFormat('id-ID', { maximumFractionDigits: 0 });
   const one = new Intl.NumberFormat('id-ID', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+  const sign = v => (v > 0 ? '+' : v < 0 ? '−' : '');
   const F = {
     jt: v => 'Rp ' + one.format(v / 1e6) + ' jt',
     pct: v => one.format(v * 100) + '%',
+    abspct: v => one.format(Math.abs(v) * 100) + '%',
     rp100: v => 'Rp' + one.format(v * 100),
-    rp: v => idr.format(v)
+    rp: v => idr.format(v),
+    dpct: v => sign(v) + one.format(Math.abs(v) * 100) + '%',
+    dpp: v => sign(v) + one.format(Math.abs(v) * 100) + ' poin'
   };
   const COL = {
     'Bahan baku': 'var(--on-kofta)', 'Overhead produksi': 'var(--on-poppy)', 'Karyawan': 'var(--on-wool)',
@@ -404,10 +481,13 @@ dash.calc('perbandingan', {
   };
   const LIGHT = new Set(['Operasional toko','Marketing & penjualan','Penyusutan','Penjualan Cake']);
   const CAB_COL = ['var(--on-poppy)', 'var(--on-kofta)'];
+  const MONTH_COL = ['var(--on-cream)', 'var(--on-caramel)', 'var(--on-poppy)', 'var(--on-fiery)', 'var(--on-kofta)', 'var(--on-deep)'];
   const MIX_COL = { 'Penjualan Toko': 'var(--on-kofta)', 'Penjualan SnackBox': 'var(--on-poppy)', 'Penjualan Cake': 'var(--on-cream)', 'Pendapatan usaha lainnya': 'var(--on-deep)' };
-  let cab = 'Gabungan';
+  const BULAN_PANJANG = { Jan: 'Januari', Feb: 'Februari', Mar: 'Maret', Apr: 'April', Mei: 'Mei', Jun: 'Juni', Jul: 'Juli', Agu: 'Agustus', Sep: 'September', Okt: 'Oktober', Nov: 'November', Des: 'Desember' };
+  const panjang = b => { const [m, y] = b.split(' '); return (BULAN_PANJANG[m] || m) + ' ' + y; };
+  const enc = encodeURIComponent;
+  let cab = 'Gabungan', bulan = null, months = [];
 
-  // tooltip
   const tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true;
   function showTip(card, ev, title, line) {
     if (tip.parentNode !== card) card.appendChild(tip);
@@ -416,41 +496,94 @@ dash.calc('perbandingan', {
     const l = document.createElement('div'); l.textContent = line; tip.appendChild(l);
     tip.hidden = false;
     const r = card.getBoundingClientRect();
-    let x = ev.clientX - r.left + 12, y = ev.clientY - r.top + 12;
+    let x = ev.clientX - r.left + 12; const y = ev.clientY - r.top + 12;
     const w = tip.offsetWidth;
     if (x + w > r.width - 8) x = Math.max(8, ev.clientX - r.left - w - 12);
     tip.style.left = x + 'px'; tip.style.top = y + 'px';
   }
-  function hideTip() { tip.hidden = true; }
+  const hideTip = () => { tip.hidden = true; };
   const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-  const failed = (box) => { box.textContent = ''; box.appendChild(el('div', 'failed', 'Gagal memuat')); };
+  const failed = box => { box.textContent = ''; box.appendChild(el('div', 'failed', 'Gagal memuat')); };
+
+  function buildMonthCtl() {
+    const ctl = document.getElementById('bulan-ctl');
+    if (ctl.childElementCount === months.length) return;
+    ctl.textContent = '';
+    for (const m of months) {
+      const b = el('button', null, m); b.type = 'button'; b.dataset.b = m;
+      b.setAttribute('aria-pressed', String(m === bulan));
+      ctl.appendChild(b);
+    }
+  }
+  document.getElementById('bulan-ctl').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    bulan = b.dataset.b;
+    document.querySelectorAll('#bulan-ctl button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    draw();
+  });
 
   function fillValues(rows) {
-    root.querySelectorAll('.v[data-source="ringkasan"]').forEach(e => {
-      const c = decodeURIComponent(e.dataset.where.split('=')[1]);
-      const row = rows && rows.find(r => r.cabang === c);
-      e.textContent = row ? F[e.dataset.fmt](row[e.dataset.field]) : '—';
+    root.querySelectorAll('.v[data-field]').forEach(e => {
+      const b = e.dataset.b || bulan, c = e.dataset.c;
+      e.setAttribute('data-source', 'ringkasan');
+      e.setAttribute('data-where', 'bulan=' + enc(b) + '&cabang=' + enc(c));
+      const row = rows && rows.find(r => r.bulan === b && r.cabang === c);
+      const v = row ? row[e.dataset.field] : null;
+      e.classList.remove('up', 'down', 'flat');
+      if (e.classList.contains('delta')) {
+        if (v == null) { e.textContent = row ? 'Bulan pertama dalam data' : ''; e.classList.add('flat'); }
+        else {
+          e.textContent = F[e.dataset.fmt](v) + ' vs ' + row.bulan_lalu;
+          const good = e.dataset.good === 'up' ? v > 0 : v < 0;
+          e.classList.add(Math.abs(v) < 0.0005 ? 'flat' : good ? 'up' : 'down');
+        }
+      } else e.textContent = v == null ? '—' : F[e.dataset.fmt](v);
       if (row) e.classList.remove('dash-skeleton');
     });
     const pill = document.getElementById('pill-net');
-    const g = rows && rows.find(r => r.cabang === 'Gabungan');
+    const g = rows && rows.find(r => r.bulan === bulan && r.cabang === 'Gabungan');
     pill.className = 'pill';
     if (g) {
       const m = g.margin_bersih;
       pill.textContent = m >= 0.15 ? 'Sehat' : m >= 0.05 ? 'Cukup' : 'Waspada';
       pill.classList.add(m >= 0.15 ? 'ok' : m >= 0.05 ? 'warn' : 'bad');
     } else pill.textContent = '';
+    ['eyebrow-bulan', 'h1-bulan', 'rincian-bulan'].forEach(id => { document.getElementById(id).textContent = bulan ? panjang(bulan) : '—'; });
+  }
+
+  function drawTren(rows) {
+    for (const [id, f] of [['tren-omset', 'pendapatan'], ['tren-laba', 'laba_bersih']]) {
+      const box = document.getElementById(id); box.textContent = '';
+      const max = Math.max(...rows.map(r => r[f]), 1);
+      const card = box.closest('.card');
+      for (const c of ['Onty 1', 'Onty 2', 'Gabungan']) {
+        const grp = el('div', 'tren-grp'); grp.appendChild(el('div', 'nm', c));
+        months.forEach((m, i) => {
+          const r = rows.find(x => x.bulan === m && x.cabang === c); if (!r) return;
+          const bl = el('div', 'bline');
+          bl.appendChild(el('span', 'muted', m));
+          const tr = el('div', 'track'); const fl = el('div', 'fill');
+          fl.style.width = Math.max(0, r[f] / max) * 100 + '%';
+          fl.style.background = i === months.length - 1 ? 'var(--on-kofta)' : 'var(--on-caramel)';
+          tr.appendChild(fl); bl.appendChild(tr);
+          tr.addEventListener('mousemove', ev => showTip(card, ev, c + ' · ' + panjang(m), F.jt(r[f]) + (f === 'laba_bersih' ? ' · margin ' + F.pct(r.margin_bersih) : '')));
+          tr.addEventListener('mouseleave', hideTip);
+          bl.appendChild(el('span', 'val', F.jt(r[f])));
+          grp.appendChild(bl);
+        });
+        box.appendChild(grp);
+      }
+    }
   }
 
   function drawAlloc(rows) {
     const box = document.getElementById('alloc'); box.textContent = '';
     const leg = document.getElementById('alloc-legend'); leg.textContent = '';
     const card = box.closest('.card');
-    for (const c of ['Onty 1','Onty 2','Gabungan']) {
-      const row = el('div', 'alloc-row');
-      row.appendChild(el('div', 'nm', c));
+    for (const c of ['Onty 1', 'Onty 2', 'Gabungan']) {
+      const row = el('div', 'alloc-row'); row.appendChild(el('div', 'nm', c));
       const st = el('div', 'stack');
-      for (const d of rows.filter(r => r.cabang === c)) {
+      for (const d of rows.filter(r => r.bulan === bulan && r.cabang === c)) {
         if (d.pct <= 0) continue;
         const s = el('div', 'seg', d.pct >= 0.055 ? 'Rp' + one.format(d.pct * 100) : '');
         s.style.width = (d.pct * 100) + '%'; s.style.background = COL[d.kategori];
@@ -466,14 +599,16 @@ dash.calc('perbandingan', {
     }
   }
 
-  function pairs(boxId, rows, metrics, maxV, bench) {
+  function pairs(boxId, all, metrics, maxV, bench) {
     const box = document.getElementById(boxId); box.textContent = '';
+    const rows = all.filter(r => r.bulan === bulan);
     const g = rows.find(r => r.cabang === 'Gabungan');
+    if (!g) return;
     for (const m of metrics) {
       const p = el('div', 'pair');
       const mt = el('div', 'mt', m.label); mt.appendChild(el('small', null, m.hint)); p.appendChild(mt);
       const bars = el('div', 'bars');
-      ['Onty 1','Onty 2'].forEach((c, i) => {
+      ['Onty 1', 'Onty 2'].forEach((c, i) => {
         const r = rows.find(x => x.cabang === c);
         const bl = el('div', 'bline');
         bl.appendChild(el('span', 'muted', c));
@@ -481,7 +616,7 @@ dash.calc('perbandingan', {
         const f = el('div', 'fill'); f.style.width = Math.max(0, Math.min(1, r[m.f] / maxV)) * 100 + '%'; f.style.background = CAB_COL[i];
         tr.appendChild(f);
         const ref = (bench && m.bench != null) ? m.bench : g[m.f];
-        const bm = el('div', 'bench'); bm.style.left = Math.min(1, ref / maxV) * 100 + '%'; tr.appendChild(bm);
+        const bm = el('div', 'bench'); bm.style.left = Math.min(1, Math.max(0, ref / maxV)) * 100 + '%'; tr.appendChild(bm);
         bl.appendChild(tr);
         const v = el('span', 'val', F.pct(r[m.f]));
         if (m.warn && m.warn(r[m.f])) v.classList.add('bad');
@@ -494,12 +629,13 @@ dash.calc('perbandingan', {
 
   function drawRank(rows) {
     const box = document.getElementById('rank'); box.textContent = '';
-    const top = rows.filter(r => r.cabang === cab).sort((a, b) => b.nilai - a.nilai).slice(0, 10);
+    const top = rows.filter(r => r.bulan === bulan && r.cabang === cab).sort((a, b) => b.nilai - a.nilai).slice(0, 10);
     const max = top.length ? top[0].nilai : 1;
     const card = box.closest('.card');
     for (const d of top) {
       const r = el('div', 'rk');
-      const an = el('span', 'an', (t => t.charAt(0).toUpperCase() + t.slice(1))(d.akun.replace(/^Beban |^Biaya /, ''))); an.title = d.akun; r.appendChild(an);
+      const nm = d.akun.replace(/^Beban |^Biaya /, '');
+      const an = el('span', 'an', nm.charAt(0).toUpperCase() + nm.slice(1)); an.title = d.akun; r.appendChild(an);
       const tr = el('div', 'track'); const f = el('div', 'fill');
       f.style.width = (d.nilai / max * 100) + '%'; f.style.background = COL[d.kategori] || 'var(--on-kofta)';
       tr.appendChild(f); r.appendChild(tr);
@@ -514,8 +650,8 @@ dash.calc('perbandingan', {
     const box = document.getElementById('mixbars'); box.textContent = '';
     const card = box.closest('.card');
     const ns = 'http://www.w3.org/2000/svg';
-    for (const c of ['Onty 1','Onty 2']) {
-      const data = rows.filter(r => r.cabang === c);
+    for (const c of ['Onty 1', 'Onty 2']) {
+      const data = rows.filter(r => r.bulan === bulan && r.cabang === c);
       const fig = el('div', 'pie'); fig.appendChild(el('div', 'nm', c));
       const svg = document.createElementNS(ns, 'svg'); svg.setAttribute('viewBox', '0 0 200 200'); svg.setAttribute('width', '100%');
       svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Komposisi penjualan ' + c);
@@ -550,10 +686,23 @@ dash.calc('perbandingan', {
     }
   }
 
+  function drawTrenTable(rows) {
+    const tb = document.querySelector('#tbl-tren tbody'); tb.textContent = '';
+    for (const r of [...rows].sort((a, b) => ['Onty 1', 'Onty 2', 'Gabungan'].indexOf(a.cabang) - ['Onty 1', 'Onty 2', 'Gabungan'].indexOf(b.cabang) || a.urutan - b.urutan)) {
+      const tr = el('tr');
+      tr.dataset.key = enc(r.bulan) + ',' + enc(r.cabang);
+      if (r.cabang === 'Gabungan') tr.className = 'grp';
+      [r.bulan, r.cabang, F.rp(r.pendapatan), F.pct(r.hpp_pct), F.pct(r.margin_kotor), F.pct(r.karyawan_pct), F.rp(r.laba_bersih), F.pct(r.margin_bersih)]
+        .forEach(t => tr.appendChild(el('td', null, t)));
+      tb.appendChild(tr);
+    }
+  }
+
   function drawTable(rows) {
     const tb = document.querySelector('#tbl tbody'); tb.textContent = '';
-    for (const r of rows) {
+    for (const r of rows.filter(x => x.bulan === bulan)) {
       const tr = el('tr');
+      tr.dataset.key = enc(r.bulan) + ',' + enc(r.akun);
       [r.akun, r.kelompok, F.rp(r.onty1), F.pct(r.onty1_pct), F.rp(r.onty2), F.pct(r.onty2_pct), F.rp(r.gabungan), F.pct(r.gabungan_pct)]
         .forEach(t => tr.appendChild(el('td', null, t)));
       tb.appendChild(tr);
@@ -567,11 +716,17 @@ dash.calc('perbandingan', {
     const d = dash.data('beban'); if (d.status === 'ok') drawRank(d.data);
   });
 
-  dash.onData(() => {
+  function draw() {
     const s = dash.data('ringkasan'), a = dash.data('alokasi'), b = dash.data('beban'), m = dash.data('mix'), t = dash.data('perbandingan');
-    fillValues(s.status === 'ok' ? s.data : null);
-    if (a.status === 'ok') drawAlloc(a.data); else if (a.status === 'error') failed(document.getElementById('alloc')); else document.getElementById('alloc').textContent = '';
     if (s.status === 'ok') {
+      months = [...new Set([...s.data].sort((x, y) => x.urutan - y.urutan).map(r => r.bulan))];
+      if (!bulan || !months.includes(bulan)) bulan = months[months.length - 1];
+      buildMonthCtl();
+    }
+    fillValues(s.status === 'ok' ? s.data : null);
+    if (s.status === 'ok') {
+      drawTren(s.data);
+      drawTrenTable(s.data);
       pairs('margins', s.data, [
         { f: 'margin_kotor', label: 'Margin kotor', hint: 'setelah HPP' },
         { f: 'margin_operasional', label: 'Margin operasional', hint: 'setelah beban usaha' },
@@ -588,12 +743,15 @@ dash.calc('perbandingan', {
         { f: 'overhead_pct', label: 'Overhead produksi', hint: 'gas, kemasan, dll.' },
         { f: 'hpp_pct', label: 'Total HPP', hint: 'bahan + overhead' }
       ], 0.5, false);
-    } else if (s.status === 'error') ['margins','ratios','hpp'].forEach(id => failed(document.getElementById(id)));
-    if (b.status === 'ok') drawRank(b.data); else if (b.status === 'error') failed(document.getElementById('rank'));
-    if (m.status === 'ok') drawMix(m.data); else if (m.status === 'error') failed(document.getElementById('mixbars'));
-    if (t.status === 'ok') drawTable(t.data);
-  });
+    } else if (s.status === 'error') ['margins', 'ratios', 'hpp', 'tren-omset', 'tren-laba'].forEach(id => failed(document.getElementById(id)));
+    if (a.status === 'ok' && bulan) drawAlloc(a.data); else if (a.status === 'error') failed(document.getElementById('alloc'));
+    if (b.status === 'ok' && bulan) drawRank(b.data); else if (b.status === 'error') failed(document.getElementById('rank'));
+    if (m.status === 'ok' && bulan) drawMix(m.data); else if (m.status === 'error') failed(document.getElementById('mixbars'));
+    if (t.status === 'ok' && bulan) drawTable(t.data);
+  }
+  dash.onData(draw);
 })();
+
 </script>
 
 </div>
